@@ -1,0 +1,6 @@
+[submodule "ex05"]
+	path = ex05
+	url = https://github.com/DSD-Gruppe-37/ex05_sequential-style_combinatorial_designs.git
+[submodule "ex06"]
+	path = ex06
+	url = https://github.com/DSD-Gruppe-37/ex06_sequential_designs_watch_exercise.git
