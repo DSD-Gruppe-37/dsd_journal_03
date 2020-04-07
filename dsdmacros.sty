@@ -13,7 +13,10 @@
 \usepackage{xcolor} 
 \usepackage[marginparsep=8pt,left=3cm,right=3cm,top=2.4cm,bottom=2.4cm]{geometry}
 
-% Sektionsnavngivning
+% Sektions - table of contens
+
+\usepackage{subcaption}
+
 
 
 \usepackage{etoc}
@@ -29,7 +32,7 @@
 \titleformat{\subsection}%
 {\centering\bfseries}{Opgave \thesubsection :}{0.5em}{}[{\titlerule[0.2pt]}]
 \titleformat{\subsubsection}%   
-{\raggedright}{}{0.5em}{}
+{\raggedright\bfseries}{}{0.5em}{}
 
 
 \usepackage{titlesec}
@@ -48,7 +51,18 @@
           {\contentslabel[\textbf{ØVELSE} \thecontentslabel:]{5.5em}}%\thecontentslabel
           {\hspace*{-6.5em}}
           {\titlerule*[0.5pc]{.}\contentspage}
-          
+%%%%%%%%%%%%%%%
+%%% Subfigures
+
+
+
+
+
+
+
+
+
+
 
 
 % The looks and feels
@@ -126,11 +140,24 @@
 	\end{figure}
 }
 
+\newcommand\dsdsubfigbase[3]{
+	\begin{subfigure}[b]{0.475\textwidth}
+		\centering
+  	 		#1
+		\caption{#3}
+		\label{fig:#2}
+	\end{subfigure}
+}
+
+
 % #1 Filename
 % #2 Figure width
 % #3 Caption
 \newcommand\dsdfig[3]{
 	\dsdfigbase{\includegraphics[width=#2]{\dirfigs#1}}{#1}{#3}{H}
+}
+\newcommand\dsdsubfig[2]{
+	\dsdsubfigbase{\includegraphics[width=\textwidth]{\dirfigs#1}}{#1}{#2}
 }
 
 

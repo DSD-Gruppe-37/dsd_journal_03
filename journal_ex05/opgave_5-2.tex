@@ -48,9 +48,9 @@ Da koden blev meget lang, er den delt op i flere stykker.
 
 \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitektur og interne signaler]Her ses begyndelsen på \texttt{Guess Game} arkitekturen, samt de signaler der oprettes}{linerange={16-21}}
 
-\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 1]Her ses de interne forbindelser mellem de oprettede elementmer.}{linerange={23-52}}
+\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 1]Her ses de interne forbindelser mellem de oprettede elementmer.}{linerange={23-63}}
 
-\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 2]Slutningen af koden, hvor de sidste elementer forbindes, og evt. ubrugte porte bliver der taget hånd om.}{linerange={53-92}}
+\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 2]Slutningen af koden, hvor de sidste elementer forbindes, og evt. ubrugte porte bliver der taget hånd om.}{linerange={64-92}}
 
 
 
@@ -63,13 +63,45 @@ Da koden blev meget lang, er den delt op i flere stykker.
 I både \figref{ex5-2-full-rtl} og \figref{ex5-2-full-postmapping}, ses implementationen af de forskellige elementer.
 
 
-\dsdfig{ex5-2-Latch-rtl}{0.3\linewidth}{RTL view: Latch entity}
-\dsdfig{ex5-2-compare-rtl}{0.7\linewidth}{RTL view: Compare entity}
-\dsdfig{ex5-2-muxfour-rtl}{0.5\linewidth}{RTL view: muxfour entity}
-\dsdfig{ex5-2-muxtwo-rtl}{0.7\linewidth}{RTL view: muxtwo entity}
+
+
+
+\begin{figure}[H]
+    \centering
+    \dsdsubfig{ex5-2-Latch-rtl}{Latch entity}
+    \hfill
+    \dsdsubfig{ex5-2-compare-rtl}{Compare entity}
+    \vskip\baselineskip
+    \dsdsubfig{ex5-2-muxfour-rtl}{Muxfour entity}
+    \hfill
+    \dsdsubfig{ex5-2-muxtwo-rtl}{Muxtwo entity}
+    \caption[RTL view: Guess Game elementer]{Udsnit af RTL views fra de forskellige elementer i Guess Game}\label{tab:ex5-2-rtls}
+\end{figure}
+
+
+
+I fig. \ref{tab:ex5-2-rtls} ses udsnit af de forskellige elementers RTL views.
+
+
+\includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{[Test bench: Guess Game]Test bench setup af Guess game't}{linerange=46-55}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % Discussion
 \subsubsection{Diskussion}
 % Conclusion
 \subsubsection{Konklusion}
 }
+
+Denne opgave har vist hvor effektivt VHDL er til at sammensætte elementer. Alt der skal til er en god kodestandard, og et par signaler. Justereinger i et enkelt element kan nemt foretages og implementeres i en hovedfil.

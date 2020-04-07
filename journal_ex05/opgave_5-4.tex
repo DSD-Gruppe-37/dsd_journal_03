@@ -1,13 +1,26 @@
+{
+\newcommand{\labelprefix}{{src5-4}}    
 \subsection{8-input NAND Gate}
 
 % Intro 
 \subsubsection{Introduktion}
 
+I denne opgave designede vi en \textit{n}-input \texttt{NAND}-gate. 
+Formålet med øvelsen er at udnytte VHDL's loopfunktion, og desuden afprøve \texttt{generic} funktionerne. Sidst nævnte muliggøre \textit{n}-inputtet, da vi med denne selv kan vælge antallet af inputs. 
+
+
 % Design
 \subsubsection{Design og implementering}
+
+For at lave en 8-input \texttt{NAND}, satte vi \texttt{generic} størrelsen til \texttt{+8}.
+
+\includecode[\labelprefix]{ex05/vhdl/nand8.vhd}{Generic input NAND entity og arkitektur}{}
+
 % Results
 \subsubsection{Resultater}
+\dsdfig{ex5-4-32_bit_NAND}{0.4\linewidth}{RTL view: 32 bit NAND}
+
 % Discussion
 \subsubsection{Diskussion}
 % Conclusion
-\subsubsection{Konklusion}
+\subsubsection{Konklusion}}

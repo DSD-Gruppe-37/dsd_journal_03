@@ -62,6 +62,8 @@ INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\iftex.s
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\iftex.sty
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.cfg
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\subcaption.sty
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\subcaption.sty
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoc\etoc.sty
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoc\etoc.sty
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\multicol.sty
@@ -378,6 +380,7 @@ INPUT c:\DSD\dsd_journal_03\figs\ex5-2-Latch-rtl.png
 INPUT c:\DSD\dsd_journal_03\figs\ex5-2-Latch-rtl.png
 INPUT c:\DSD\dsd_journal_03\figs\ex5-2-Latch-rtl.png
 INPUT c:\DSD\dsd_journal_03\figs\ex5-2-Latch-rtl.png
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\kpfonts\jkpssmsl8t.tfm
 INPUT c:\DSD\dsd_journal_03\figs\ex5-2-compare-rtl.png
 INPUT c:\DSD\dsd_journal_03\figs\ex5-2-compare-rtl.png
 INPUT c:\DSD\dsd_journal_03\figs\ex5-2-compare-rtl.png
@@ -393,10 +396,28 @@ INPUT c:\DSD\dsd_journal_03\figs\ex5-2-muxtwo-rtl.png
 INPUT c:\DSD\dsd_journal_03\figs\ex5-2-muxtwo-rtl.png
 INPUT c:\DSD\dsd_journal_03\figs\ex5-2-muxtwo-rtl.png
 INPUT c:\DSD\dsd_journal_03\figs\ex5-2-muxtwo-rtl.png
+INPUT c:\DSD\dsd_journal_03\ex05\vhdl\test_bench.vhd
+INPUT c:\DSD\dsd_journal_03\ex05\vhdl\test_bench.vhd
+INPUT c:\DSD\dsd_journal_03\ex05\vhdl\test_bench.vhd
 INPUT c:\DSD\dsd_journal_03\journal_ex05\opgave_5-3.tex
 INPUT c:\DSD\dsd_journal_03\journal_ex05\opgave_5-3.tex
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\kpfonts\jkpssmsl8t.vf
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\kpfonts\jkpssmsl8r.tfm
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\kpfonts\jkpssmsle.tfm
 INPUT c:\DSD\dsd_journal_03\journal_ex05\opgave_5-4.tex
 INPUT c:\DSD\dsd_journal_03\journal_ex05\opgave_5-4.tex
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\kpfonts\jkpmit8t.tfm
+INPUT c:\DSD\dsd_journal_03\ex05\vhdl\nand8.vhd
+INPUT c:\DSD\dsd_journal_03\ex05\vhdl\nand8.vhd
+INPUT c:\DSD\dsd_journal_03\ex05\vhdl\nand8.vhd
+INPUT c:\DSD\dsd_journal_03\figs\ex5-4-32_bit_NAND.png
+INPUT c:\DSD\dsd_journal_03\figs\ex5-4-32_bit_NAND.png
+INPUT c:\DSD\dsd_journal_03\figs\ex5-4-32_bit_NAND.png
+INPUT c:\DSD\dsd_journal_03\figs\ex5-4-32_bit_NAND.png
+INPUT c:\DSD\dsd_journal_03\figs\ex5-4-32_bit_NAND.png
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\kpfonts\jkpmit8t.vf
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\kpfonts\jkpmit8r.tfm
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\kpfonts\jkpmite.tfm
 INPUT c:\DSD\dsd_journal_03\journal_ex05\opgave_5-5.tex
 INPUT c:\DSD\dsd_journal_03\journal_ex05\opgave_5-5.tex
 INPUT c:\DSD\dsd_journal_03\journal_ex05\opgave_5-6.tex
@@ -407,13 +428,18 @@ INPUT c:\DSD\dsd_journal_03\main.aux
 INPUT c:\DSD\dsd_journal_03\main.out
 INPUT c:\DSD\dsd_journal_03\main.out
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\base\8r.enc
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\kpfonts\kpfonts-expert.enc
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\inconsolata\i4-t1-0.enc
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\inconsolata\Inconsolata-zi4r.pfb
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\inconsolata\Inconsolata-zi4r.pfb
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\kpfonts\jkpbn8a.pfb
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\kpfonts\jkpbn8a.pfb
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\kpfonts\jkpmit8a.pfb
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\kpfonts\jkpmit8a.pfb
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\kpfonts\jkpmn8a.pfb
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\kpfonts\jkpmn8a.pfb
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\kpfonts\jkpmne.pfb
+INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\kpfonts\jkpmne.pfb
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\kpfonts\jkpssbn8a.pfb
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\kpfonts\jkpssbn8a.pfb
 INPUT C:\Users\adamh\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\kpfonts\jkpssmn8a.pfb
