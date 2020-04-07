@@ -13,6 +13,43 @@
 \usepackage{xcolor} 
 \usepackage[marginparsep=8pt,left=3cm,right=3cm,top=2.4cm,bottom=2.4cm]{geometry}
 
+% Sektionsnavngivning
+
+
+\usepackage{etoc}
+\usepackage{scrhack}
+
+\usepackage{titlesec}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{(\roman{subsubsection})}
+\titleformat{\section}%
+{\centering\uppercase}{Øvelse \thesection:}{0.5em}{}[{\titlerule[0.8pt]}]
+
+\titleformat{\subsection}%
+{\centering\bfseries}{Opgave \thesubsection :}{0.5em}{}[{\titlerule[0.2pt]}]
+\titleformat{\subsubsection}%   
+{\raggedright}{}{0.5em}{}
+
+
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+
+\titlecontents{subsection}
+          [7em] % ie, width of contentslabel + 0.5em
+          {\medskip}
+          {\contentslabel[\MakeUppercase Opgave \thecontentslabel.]{5.5em}}%\thecontentslabel
+          {\hspace*{-6.5em}}
+          {\titlerule*[0.5pc]{.}\contentspage}
+  \titlecontents{section}
+          [7em] % ie, width of contentslabel + 0.5em
+          {\medskip}
+          {\contentslabel[\textbf{ØVELSE} \thecontentslabel:]{5.5em}}%\thecontentslabel
+          {\hspace*{-6.5em}}
+          {\titlerule*[0.5pc]{.}\contentspage}
+          
+
 
 % The looks and feels
 %\usepackage{times} - times new roman ??! Odd choice...
@@ -135,8 +172,8 @@
 		%  \framebox{
         \rule{8pt}{0pt}
         \lstinputlisting[%
+        caption={#3},
           #4,
-        caption=#3
         ]{\dirsrc#2}
       %  }
 		\label{#1:#2}

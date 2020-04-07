@@ -40,28 +40,33 @@ Ved at udvide multiplexeren, kunne der ligeledes laves en multiplexer der håndt
 \paragraph{Guess Game}
 Delblokkene blev samlet i en \texttt{Guess Game} entity der udnyttede muligheden for at lave interne signaler.
 
+ 
 
 Da koden blev meget lang, er den delt op i flere stykker.
-\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{Guess Game Entity}{linerange={0-14}}
-Her ses selve entitydeklerationen, hvor alle input og output oprettes.
+\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game Entity]Her ses selve entitydeklerationen, hvor alle input og output oprettes.}{linerange={0-14}}
 
-\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{Guess Game arkitektur og interne signaler}{linerange={16-21}}
-Her ses begyndelses på \texttt{Guess Game} arkitekturen, samt de signaler der oprettes.
-\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{Guess Game arkitekturen}{linerange={23-52}}
-Her ses de interne forbindelser mellem de oprettede elementmer.
-\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{Guess Game arkitekturen}{linerange={53-92}}
-Slutningen af koden, hvor de sidste elementer forbindes, og evt. ubrugte porte bliver der taget hånd om.
+
+\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitektur og interne signaler]Her ses begyndelsen på \texttt{Guess Game} arkitekturen, samt de signaler der oprettes}{linerange={16-21}}
+
+\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 1]Her ses de interne forbindelser mellem de oprettede elementmer.}{linerange={23-52}}
+
+\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 2]Slutningen af koden, hvor de sidste elementer forbindes, og evt. ubrugte porte bliver der taget hånd om.}{linerange={53-92}}
+
 
 
 
 % Results
 \subsubsection{Resultater}
 \dsdfig{ex5-2-full-rtl}{0.9\linewidth}{RTL view: Guess game}
-% \dsdfig{ex5-2-Latch-rtl}{0.8\linewidth}{RTL view: Latch entity}
-% \dsdfig{ex5-2-compare-rtl}{0.8\linewidth}{RTL view: Compare entity}
-% \dsdfig{ex5-2-muxfour-rtl}{0.8\linewidth}{RTL view: muxfour entity}
-% \dsdfig{ex5-2-muxtwo-rtl}{0.8\linewidth}{RTL view: muxtwo entity}
-% \dsdfig{ex5-2-full-postmapping}{0.8\linewidth}{Full postmapping: Guess game}
+\dsdfig{ex5-2-full-postmapping}{0.9\linewidth}{Postmapping view: Guess game}
+
+I både \figref{ex5-2-full-rtl} og \figref{ex5-2-full-postmapping}, ses implementationen af de forskellige elementer.
+
+
+\dsdfig{ex5-2-Latch-rtl}{0.3\linewidth}{RTL view: Latch entity}
+\dsdfig{ex5-2-compare-rtl}{0.7\linewidth}{RTL view: Compare entity}
+\dsdfig{ex5-2-muxfour-rtl}{0.5\linewidth}{RTL view: muxfour entity}
+\dsdfig{ex5-2-muxtwo-rtl}{0.7\linewidth}{RTL view: muxtwo entity}
 
 % Discussion
 \subsubsection{Diskussion}

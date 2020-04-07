@@ -1,4 +1,10 @@
 \babel@toc {danish}{}
-\contentsline {figure}{\numberline {1}{\ignorespaces RTL view: Binary to 7-segment\relax }}{4}{figure.caption.5}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Postmapping view: Binary to 7-segment\relax }}{5}{figure.caption.6}%
-\contentsline {figure}{\numberline {3}{\ignorespaces RTL view: Guess game\relax }}{10}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces RTL view: Binary to 7-segment\relax }}{4}{figure.caption.2}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Postmapping view (udsnit): Binary to 7-segment\relax }}{5}{figure.caption.3}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces RTL view: Guess game\relax }}{10}{figure.caption.20}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Postmapping view: Guess game\relax }}{11}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces RTL view: Latch entity\relax }}{11}{figure.caption.22}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces RTL view: Compare entity\relax }}{11}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces RTL view: muxfour entity\relax }}{12}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces RTL view: muxtwo entity\relax }}{12}{figure.caption.25}%
+\contentsfinish 
