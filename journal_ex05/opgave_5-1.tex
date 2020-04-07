@@ -1,0 +1,46 @@
+{
+    \newcommand{\labelprefix}{src5-1}
+
+\subsection{Binary to 7-Segment Decoder Using “CASE”}
+
+% Intro 
+\subsubsection{Introduktion}
+
+I denne opgave vil vi igen skrive en Binary to 7-segment decoder, dog vil vi bruge \texttt{case} statements istedet.
+
+Funktionaliteten bør i teorien være det sammen som hvis vi brugte \texttt{when} statements.
+
+% Design
+\subsubsection{Design og implementering}
+Decoderen blev designet på samme måde som i øvelse 4, og med de samme betingelsesværdier.
+
+\includecode[\labelprefix]{ex05/vhdl/bin2sevenseg.vhd}{Binary to 7-segment entity og arkitektur}{linerange={0-36}}
+% Results
+\subsubsection{Resultater}
+
+\dsdfig{ex5-1-rtl}{0.8\linewidth}{RTL view: Binary to 7-segment}
+\dsdfig{ex5-1-post-mapping}{0.8\linewidth}{Postmapping view: Binary to 7-segment}
+
+For at teste Funktionaliteten blev blev der også lavet en testcase, denne ses i \tabref{7segmentTestCase}, og dens testbench kode ses i \coderef{ex05/vhdl/test_bench.vhd}
+\dsdtab{
+    \begin{tabular}{p{4cm}p{4cm}p{4cm}}\toprule
+        Input & Forventet display & Reelt display \\\midrule
+        \texttt{0101} & \texttt{5} & \texttt{5} \\\midrule
+        \texttt{0111} & \texttt{7} & \texttt{7} \\\midrule
+        \texttt{1111} & \texttt{F} & \texttt{F} \\\bottomrule
+    \end{tabular}
+    }{Test case for binary to 7-segment }{7segmentTestCase}
+    
+    \includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{Binary to 7-segment test bench}{linerange={57-64}}
+
+% Discussion
+\subsubsection{Diskussion}
+
+Det ses på \figref{ex5-1-rtl} at den igen består af en række multiplexers. Der er altså ikke den store forskel på \texttt{with} og \texttt{case} i dette tilfælde. Post-mapping viewet i \figref{ex5-1-post-mapping} viser heller ikke nogen forskel, i forhold til sidste øvelse.
+
+% Conclusion
+\subsubsection{Konklusion}
+
+Der er ingen reel forskel på, om man implementere en binary to 7-segment vha. \texttt{case} eller \texttt{with} statements - begge er lige velfungerende.
+        
+}

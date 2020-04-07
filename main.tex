@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[10pt,a4paper,onesided]{article}
 \usepackage{dsdmacros}
 
 \newcommand\mymaketitle[1]{
@@ -14,23 +14,27 @@
 \begin{document}
 
 \title{
-	\mymaketitle{E2DSD\\Øvelse \#[n] - [journal titel]} % TODO Replace [n] and [journal titel]
+	\mymaketitle{E2DSD --- Journal \#3\\``Sequential-style Combinatorial Designs'' og ``Dataflow-style Combinatorial Designs''}
 }
 \author{
 	Gruppe \#37\\
 	Adam Ryager Høj --- 201803767\\
-   Rasmus Kahr --- 201803491\\
+   Rasmus Kahr --- 201803491\\   
    Hoang Phuoc Pho Tran --- 201507142
 }
-\date{[journal dato]} % TODO Replace [journal dato]
+\date{2020-04-21}
 
 \maketitle
 \clearpage
 
 \tableofcontents
-% \listoffigures
+\lstlistoflistings
+\listoffigures
 \clearpage
 
-% TODO journal pages
+\input{ex5.tex}
+\clearpage
+
+\input{ex6.tex}
 
 \end{document}

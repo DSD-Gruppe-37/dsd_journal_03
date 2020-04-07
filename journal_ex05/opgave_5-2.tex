@@ -1,0 +1,70 @@
+{
+\newcommand{\labelprefix}{src5-2}
+
+\subsection{Guess Game}
+
+% Intro 
+\subsubsection{Introduktion}
+
+Målet med denne opgave var at skabe basen til et FPGA baseret spil, hvori en spiller skulle kunne gemme en talværdi i, og derefter skal en anden forsøge at gætte denne værdi. Spillet skal altimens kunne give et visuelt feedback, dette baseret på spillernes input.
+
+% Design
+\subsubsection{Design og implementering}
+
+For at spillet kan muligøres, skal der laves en række elementer som udgøre selve spillets kerne.
+
+Alle elementer indeholder desuden:
+\includecode[\labelprefix]{ex05/vhdl/latch.vhd}{\texttt{ieee} standard}{linerange={0-3}}
+
+\paragraph{Latch}
+Først er lavet en latch,\coderef{ex05/vhdl/latch.vhd}. Denne har til formål at faste holde en værdi, når der trykkes på \texttt{set}.
+
+\includecode[\labelprefix]{ex05/vhdl/latch.vhd}{Latch entity og arkitektur}{linerange={4-27}}
+
+
+\includecode[\labelprefix]{ex05/vhdl/CompareLogic.vhd}{Compare entity og arkitektur}{linerange={5-32}}
+
+\paragraph{Compare}
+Comparelogikken der er vist i \coderef{ex05/vhdl/CompareLogic.vhd} er sat op via. en række \texttt{if, elsif} statements, der sammenligninger de inputs der er tilstede - men kun når \texttt{tryin} er aktiv, hvilket \texttt{process()} søger for.
+
+\paragraph{Multiplexers}
+\includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Fælles mux entity}{linerange={7-24}}
+Det var tydeligt at binary to 7-segement decoderen bestod af multiplexers - hvilket gør at følgende multiplexers kan skrives på samme måde.
+\includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux2 arkitektur}{linerange={47-58}}
+
+Derfor kunne den let skrives på samme måde, hvilket ses i \coderef{ex05/vhdl/mux.vhd}
+
+\includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux4 arkitektur}{linerange={29-42}}
+Ved at udvide multiplexeren, kunne der ligeledes laves en multiplexer der håndterede visning af 10'ere og 1'ere på de 2 hexdisplays.
+
+\paragraph{Guess Game}
+Delblokkene blev samlet i en \texttt{Guess Game} entity der udnyttede muligheden for at lave interne signaler.
+
+
+Da koden blev meget lang, er den delt op i flere stykker.
+\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{Guess Game Entity}{linerange={0-14}}
+Her ses selve entitydeklerationen, hvor alle input og output oprettes.
+
+\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{Guess Game arkitektur og interne signaler}{linerange={16-21}}
+Her ses begyndelses på \texttt{Guess Game} arkitekturen, samt de signaler der oprettes.
+\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{Guess Game arkitekturen}{linerange={23-52}}
+Her ses de interne forbindelser mellem de oprettede elementmer.
+\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{Guess Game arkitekturen}{linerange={53-92}}
+Slutningen af koden, hvor de sidste elementer forbindes, og evt. ubrugte porte bliver der taget hånd om.
+
+
+
+% Results
+\subsubsection{Resultater}
+\dsdfig{ex5-2-full-rtl}{0.9\linewidth}{RTL view: Guess game}
+% \dsdfig{ex5-2-Latch-rtl}{0.8\linewidth}{RTL view: Latch entity}
+% \dsdfig{ex5-2-compare-rtl}{0.8\linewidth}{RTL view: Compare entity}
+% \dsdfig{ex5-2-muxfour-rtl}{0.8\linewidth}{RTL view: muxfour entity}
+% \dsdfig{ex5-2-muxtwo-rtl}{0.8\linewidth}{RTL view: muxtwo entity}
+% \dsdfig{ex5-2-full-postmapping}{0.8\linewidth}{Full postmapping: Guess game}
+
+% Discussion
+\subsubsection{Diskussion}
+% Conclusion
+\subsubsection{Konklusion}
+}

@@ -1,0 +1,43 @@
+\babel@toc {danish}{}
+\contentsline {section}{\numberline {1}Øvelse 5 --- Sequential-style Combinatorial Designs}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Binary to 7-Segment Decoder Using “CASE”}{3}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Introduktion}{3}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Design og implementering}{3}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Resultater}{4}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Diskussion}{5}{subsubsection.1.1.4}%
+\contentsline {subsubsection}{\numberline {1.1.5}Konklusion}{5}{subsubsection.1.1.5}%
+\contentsline {subsection}{\numberline {1.2}Guess Game}{5}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Introduktion}{5}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Design og implementering}{6}{subsubsection.1.2.2}%
+\contentsline {paragraph}{Latch}{6}{section*.10}%
+\contentsline {paragraph}{Compare}{7}{section*.13}%
+\contentsline {paragraph}{Multiplexers}{8}{lstnumber.6.18}%
+\contentsline {paragraph}{Guess Game}{8}{section*.18}%
+\contentsline {subsubsection}{\numberline {1.2.3}Resultater}{10}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Diskussion}{11}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Konklusion}{11}{subsubsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.3}Two Player Guess Game}{11}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Introduktion}{11}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Design og implementering}{11}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Resultater}{11}{subsubsection.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}Diskussion}{11}{subsubsection.1.3.4}%
+\contentsline {subsubsection}{\numberline {1.3.5}Konklusion}{11}{subsubsection.1.3.5}%
+\contentsline {subsection}{\numberline {1.4}8-input NAND Gate}{11}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Introduktion}{11}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Design og implementering}{11}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Resultater}{11}{subsubsection.1.4.3}%
+\contentsline {subsubsection}{\numberline {1.4.4}Diskussion}{11}{subsubsection.1.4.4}%
+\contentsline {subsubsection}{\numberline {1.4.5}Konklusion}{11}{subsubsection.1.4.5}%
+\contentsline {subsection}{\numberline {1.5}Count Ones}{11}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Introduktion}{11}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Design og implementering}{11}{subsubsection.1.5.2}%
+\contentsline {subsubsection}{\numberline {1.5.3}Resultater}{11}{subsubsection.1.5.3}%
+\contentsline {subsubsection}{\numberline {1.5.4}Diskussion}{11}{subsubsection.1.5.4}%
+\contentsline {subsubsection}{\numberline {1.5.5}Konklusion}{11}{subsubsection.1.5.5}%
+\contentsline {subsection}{\numberline {1.6}Flash A/D Converter - not possible due Corona situation.}{11}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Introduktion}{11}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.6.2}Design og implementering}{11}{subsubsection.1.6.2}%
+\contentsline {subsubsection}{\numberline {1.6.3}Resultater}{11}{subsubsection.1.6.3}%
+\contentsline {subsubsection}{\numberline {1.6.4}Diskussion}{11}{subsubsection.1.6.4}%
+\contentsline {subsubsection}{\numberline {1.6.5}Konklusion}{11}{subsubsection.1.6.5}%
+\contentsline {section}{\numberline {2}Øvelse 6 --- }{12}{section.2}%
