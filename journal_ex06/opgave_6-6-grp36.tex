@@ -1,0 +1,68 @@
+\begin{table}[h]
+    \small
+    \begin{tabularx}{\textwidth}{p{3.5cm}Xp{5mm}X}
+
+        \toprule
+        \multicolumn{4}{c}{ARITHMETIC AND LOGICAL OPERATORS IN VHDL}                                                                                                                                                                                              \\\midrule
+        Exe 1: Signed and Unsigned Arithmetic &                                                                                                     &   &                                                                                                         \\
+                                              & 1b) er der en funktionel simulering?                                                                & 4 & Uklart, udfra billedetekst, fig. 4, om det er signed eller unsigned der er vist.                        \\
+                                              & 1c) er der en tester eller testbench kode i journalen?                                              & 5 & Fig. 3 viser en fungerende testbench                                                                    \\
+                                              & 1g) er der tilføjet kode til at håndtere Cin og Cout?                                               & 4 & Fig. 2 viser på linje 25 \& 30 hvordan dette håndteres. Dog ikke beskrevet i teksten.                   \\
+                                              & 1g) og er resize-problematikken beskrevet?                                                          & 3 & Håndteret i kode (fig 2), men ikke beskrevet i teksten.                                                 \\
+                                              &                                                                                                     &   &                                                                                                         \\ \midrule
+        Exe 2: Concatenation                  &                                                                                                     &   &                                                                                                         \\
+                                              & 2a) er concatenate-koden implementeret og vist?                                                     & 5 & Dette er vist i fig.1                                                                                   \\
+                                              & 2a) er antallet af LE lig med 0 (som er det korrekte antal)?                                        & 5 & Ja - vist i fig. 3                                                                                      \\
+                                              & 2a) er der svaret på, hvordan skifte operationerne er implementeret på FPGA’en?                     & 5 & Ja  vist i fig. 4 med technology map view.                                                              \\
+                                              & Er der en tilpas mængde test simuleringer og fotos, plus tilhørende tekst?                          & 5 & Ja - vist i fig. 5 og fig. 6 med LED beskrivelser                                                       \\
+                                              &                                                                                                     &   &                                                                                                         \\\midrule
+        Exe 3: Multiplication                 &                                                                                                     &   &                                                                                                         \\
+                                              & 3c) er den en resultat-tabel i journalen for forbruget af LE’er?                                    & 4 & Vist i tabel ?? - mangler ref. nummer                                                                   \\
+                                              & 3c) er der lavet et LE-vs-bitsize plot for bitsizes=32,16,8,4,3,2,1?                                & 4 & Ja - vist på fig. ?? - mere beskrivende tekst - mangler ref. nummer                                     \\
+                                              & 3c) er der svaret på, hvordan LE skalerer mht. bitstørrelse-n (ca. n\textasciicircum{}2)?           & 5 & Der er vist en potensregression                                                                         \\
+                                              & 3d) er der en resultat-tabel over antallet af LE’er vdr. multiplikation med en konstant?            & 2 & Der er vist to resultater (fig. 11, fig. 12) der viser a*2\textasciicircum{}2, og a*7, men ingen tabel. \\
+                                              & 3d) er der svaret på, hvorfor multiplikation med 2,4,8,16 osv. (2\textasciicircum{}k) giver 0 LE’s? & 5 & Forklaret fint I konklusionen                                                                           \\
+                                              & Hint: gange med 2,4 eller 2\textasciicircum{}k giver blot et venstreskift 1, 2 eller k gange.       &   &                                                                                                         \\
+                                              &                                                                                                     &   &                                                                                                         \\\midrule
+    \end{tabularx}
+\end{table}
+\begin{table}[h]
+    \small
+    \begin{tabularx}{\textwidth}{p{3.5cm}Xp{5mm}X}
+
+        \toprule
+        \multicolumn{4}{c}{DATAFLOW-STYLE COMBINATORIAL DESIGNS IN VHDL}                                                                                                                                                                \\\midrule
+        Exe 1: Binary to 7-Segment Decoder Using “WITH-SELECT” &                                                                                                & 5 & Vist I fig. 13                                                    \\
+                                                               & 1a) er koden til 7-segment-dekoderen vist?                                                     & 0 & Nej                                                               \\
+                                                               & 1b) er RTL-viewet vist?                                                                        & 0 & Nej                                                               \\
+                                                               & 1b) er der evt. svaret på hvorfor RTL-vieweren ser ud som den gør?                             &   &                                                                   \\
+                                                               &                                                                                                &   &                                                                   \\\midrule
+        Exe 2: Demultiplexing Using “WHEN”                     &                                                                                                &   &                                                                   \\
+                                                               & 1b) er der kode for hex-mux’en (og evt testeren) i journalen?                                  & 5 & Ja, vist I fig. 16                                                \\
+                                                               & 1c) er der kommenteret på ”inferred latches” i journalen,                                      & 5 & Ja, vist I fig. 17, fig. 22 og fig. 23. Beskrevet I konklusionen. \\
+                                                               & dvs. har de fundet nogle og/eller dokumenteret at de er blevet håndteret/fjernet?              &   &                                                                   \\
+                                                               &                                                                                                &   &                                                                   \\\midrule
+        Exe 2: Table Lookup                                    &                                                                                                &   &                                                                   \\
+                                                               & 1a) er opgaven ”Table Lookup” implementeret som en rigtig lookup tabel?                        & 5 & Ja - vist I fig. 24                                               \\
+                                                               & (dvs. IKKE via en with-select eller en when-sprogkonstruktion, men som en rigtig lookup tabel) &   &                                                                   \\
+                                                               & 1b) er der dokumentation for testen?                                                           & 5 & Ja - vist i fig. 26;30                                            \\
+                                                               &                                                                                                &   &                                                                   \\\midrule
+        Exe 3: Bidirectional Ports (OPTIONAL)                  &                                                                                                &   &                                                                   \\
+                                                               & Super bonus, hvis i har lavet denne ekstra opgave!                                             & 0 &                                                                   \\
+                                                               &
+    \end{tabularx}
+\end{table}
+\begin{table}[h]
+    \small
+    \begin{tabularx}{\textwidth}{p{3.5cm}Xp{5mm}X} &                                                        &                                                                           \\\midrule
+        \multicolumn{4}{c}{GENERELT}                                                                                                                                        \\\midrule
+                                       &                                                        &   &                                                                       \\
+                                       & Er der forside med DSD projekt gruppenr navne og id'er & 5 & Velinformerende forside, der beskriver opgavenavne og gruppemedlemmer \\
+                                       & Er der svaret på alle underopgaver a), b), c) osv?     & 4 & Der mangler en hel del exe 4-1                                        \\
+                                       & Er der en introduktion til hver opgave?                & 5 & Ja, alle opgaver har en introduktion                                  \\
+                                       & Er der en resultater og diskussion til hver opgave?    & 4 & Exe 4-1 mangler en del.                                               \\
+                                       & Er der en konklusion til hver opgave?                  & 5 & Ja, alle opgaver har en konklusion                                    \\
+                                       & Er al VHDL kode formateret (indenteret) for læsbarhed? & 4 & Noget kode (fig 1;2) er meget småt. Ellers meget klart og læsbart.    \\
+                                       & Hvad vil du overordnet give opgaven af point?          & 4 & Der er lidt mangler I opgaven, men ellers rigtigt fint.               \\ \bottomrule
+    \end{tabularx}
+\end{table}

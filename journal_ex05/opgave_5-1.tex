@@ -12,8 +12,10 @@ Funktionaliteten bør i teorien være det sammen som hvis vi brugte \texttt{when
 
 % Design
 \subsubsection{Design og implementering}
-Decoderen blev designet på samme måde som i øvelse 4, og med de samme betingelsesværdier.
+Decoderen blev designet på samme måde som i øvelse 4, og med de samme betingelsesværdier, dog med \texttt{case} i stedet. De to syntaxer minder om hinanden, men der er dog nogle forskelle. Resulatet  af koden ses i \coderef[\labelprefix]{ex05/vhdl/bin2sevenseg.vhd}
+
 \includecode[\labelprefix]{ex05/vhdl/bin2sevenseg.vhd}{Binary to 7-segment entity og arkitektur}{linerange={4-36}}
+
 % Results
 \subsubsection{Resultater}
 
@@ -45,6 +47,6 @@ Det ses på \figref{ex5-1-rtl} at den igen består af en række multiplexers. De
 % Conclusion
 \subsubsection{Konklusion}
 
-Der er ingen reel forskel på, om man implementere en binary to 7-segment vha. \texttt{case} eller \texttt{with} statements - begge er lige velfungerende.
+Der er ingen reel forskel på, om man implementere en binary to 7-segment vha. \texttt{case} eller \texttt{with} statements - begge er lige velfungerende. Det bør dog undersøges om der er en forskel i ren praksis.
         
 }

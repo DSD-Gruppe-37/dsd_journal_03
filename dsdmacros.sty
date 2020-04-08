@@ -15,19 +15,18 @@
 
 % Sektions - table of contens
 
+
+%%% Looks of the document..
 \usepackage{subcaption}
-
-
 
 \usepackage{etoc}
 \usepackage{scrhack}
-
 \usepackage{titlesec}
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \renewcommand{\thesubsubsection}{(\roman{subsubsection})}
 \titleformat{\section}%
-{\centering\uppercase}{Øvelse \thesection:}{0.5em}{}[{\titlerule[0.8pt]}]
+{\large\centering\uppercase}{Øvelse \thesection:}{0.5em}{}[{\titlerule[0.8pt]}]
 
 \titleformat{\subsection}%
 {\centering\bfseries}{Opgave \thesubsection :}{0.5em}{}[{\titlerule[0.2pt]}]
@@ -52,13 +51,15 @@
           {\hspace*{-6.5em}}
           {\titlerule*[0.5pc]{.}\contentspage}
 %%%%%%%%%%%%%%%
-%%% Subfigures
-
-
-
-
-
-
+\usepackage{titleps,kantlipsum}
+\newpagestyle{mypage}{%
+  \headrule
+  \sethead{}{}{}
+  \setfoot{}{Opgave \thesubsection: \MakeUppercase{\subsectiontitle}}{\thepage}
+  \footrule
+}
+\settitlemarks{section,subsection,subsubsection}
+\pagestyle{mypage}
 
 
 
@@ -75,6 +76,7 @@
 \setlength\parindent{0pt}
 % Additional packages
 \usepackage{booktabs}
+\usepackage{tabularx}
 \usepackage{float}
 \usepackage{amsfonts}
 
@@ -91,14 +93,6 @@
     linkcolor=black,
     urlcolor=black
 }
-% Section numbering.. - remove leading number.
-% \makeatletter
-% \renewcommand{\@seccntformat}[1]{}
-% \makeatother
-% \makeatletter
-% \let\latexl@section\l@section
-% \def\l@section#1#2{\begingroup\let\numberline\@gobble\latexl@section{#1}{#2}\endgroup}
-% \makeatother
 
 % Etc 
 \usepackage{enumitem}
@@ -127,8 +121,8 @@
 \newcommand\srcref[1]{source code table \ref{src:#1}}
 \newcommand\Srcref[1]{Source code table \ref{src:#1}}
 
- \newcommand\coderef[2][src]{source code table \ref{#1:#2}}
- \newcommand\CodeRef[2][src]{Source code table \ref{#1:#2}}
+\newcommand\coderef[2][src]{source code table \ref{#1:#2}}
+\newcommand\CodeRef[2][src]{Source code table \ref{#1:#2}}
 \newcommand\coderefsimple[2][src]{\ref{#1:#2}}
 
 \newcommand\dsdfigbase[4]{
@@ -139,7 +133,7 @@
 		\label{fig:#2}
 	\end{figure}
 }
-
+%%% Subfigure
 \newcommand\dsdsubfigbase[3]{
 	\begin{subfigure}[b]{0.475\textwidth}
 		\centering
@@ -156,6 +150,10 @@
 \newcommand\dsdfig[3]{
 	\dsdfigbase{\includegraphics[width=#2]{\dirfigs#1}}{#1}{#3}{H}
 }
+
+%%% Subfigure
+% #1 filename/label
+% #2 Caption
 \newcommand\dsdsubfig[2]{
 	\dsdsubfigbase{\includegraphics[width=\textwidth]{\dirfigs#1}}{#1}{#2}
 }
@@ -173,22 +171,6 @@
 	\end{table}
 }
 
-% #1 Filename
-% #2 Caption
-% #3 first line
-% % #4 last line
-% \newcommand\dsdsrc[4]{
-% 	\begin{table}[H]
-% 		\centering
-% 		  \framebox{
-%         \rule{8pt}{0pt}
-%         \lstinputlisting[firstline=#3,lastline=#4]{\dirsrc#1}
-%       }
-% 		\caption{#2}
-% 		\label{src:#1}
-% 	\end{table}
-% }
-
 % #1 Label prefix
 % #2 Filename
 % #3 Caption
@@ -199,11 +181,12 @@
 		%  \framebox{
         \rule{8pt}{0pt}
         \lstinputlisting[%
+        label={#1:#2},
         caption={#3},
           #4,
         ]{\dirsrc#2}
       %  }
-		\label{#1:#2}
+		% \label{#1:#2}
 	\end{table}
 }
 

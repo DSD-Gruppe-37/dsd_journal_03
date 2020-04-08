@@ -14,11 +14,27 @@ Formålet med øvelsen er at udnytte VHDL's loopfunktion, og desuden afprøve \t
 
 For at lave en 8-input \texttt{NAND}, satte vi \texttt{generic} størrelsen til \texttt{+8}.
 
-\includecode[\labelprefix]{ex05/vhdl/nand8.vhd}{Generic input NAND entity og arkitektur}{}
+\includecode[\labelprefix]{ex05/vhdl/nand8.vhd}{Generic input \texttt{NAND} entity og arkitektur}{}
 
 % Results
 \subsubsection{Resultater}
-\dsdfig{ex5-4-32_bit_NAND}{0.4\linewidth}{RTL view: 32 bit NAND}
+
+
+\dsdtab{
+    \begin{tabular}{p{4cm}p{4cm}p{4cm}}\toprule
+        Input & Forventet output & Reelt output \\\midrule
+        \texttt{00000000} & \texttt{1} & \texttt{1} \\\midrule
+        \texttt{01111110} & \texttt{0} & \texttt{0} \\\midrule
+        \texttt{00110011} & \texttt{0} & \texttt{0} \\\bottomrule
+    \end{tabular}
+    }{Test case for 8 input \texttt{NAND}}{eightInputNand}
+    
+
+
+\dsdfig{ex5-4-8_bit_NAND}{0.8\linewidth}{RTL view: 8 bit \texttt{NAND}}
+
+
+\dsdfig{ex5-4-32_bit_NAND}{0.5\linewidth}{RTL view: 32 bit \texttt{NAND}}
 
 % Discussion
 \subsubsection{Diskussion}
