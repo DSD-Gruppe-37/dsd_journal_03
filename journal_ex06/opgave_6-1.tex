@@ -1,13 +1,28 @@
 {
-    \newcommand{\labelprefix}{src6-1}
+\newcommand{\labelprefix}{src6-1}
 
 \subsection{Counter - One Digit}
 
 % Intro 
 \subsubsection{Introduktion}
 
+Denne opgave handler om at skabe en tæller der går fra \texttt{[0:9]}. For at gøre dette vil vi udnytte nogle af \texttt{IEEE.numeric\_std.ALL} biblioteket, der blandet andet indholder \emph{edge detection}.
+
 % Design
 \subsubsection{Design og implementering}
+
+Selve tælleren blev skrevet vha. \texttt{process} og \texttt{case} metoder.
+
+
+
+\includecode[\labelprefix]{ex06/vhdl/count_onedigit.vhd}{[Count one digit entity] Her ses Count one digit entitien, hvor input og output definers}{linerange=5-16}
+
+\includecode[\labelprefix]{ex06/vhdl/count_onedigit.vhd}{[Count one digit arkitektur] Her ses Count one digit arkitekturen, hvor bla. \texttt{mode} og \texttt{reset} implementers}{linerange=18-66}
+
+\includecode[\labelprefix]{ex06/vhdl/multi_counter_tester.vhd}{[Test bench: Multi Counter]Test setup der viser et test setup for vores tæller.}{linerange=5-41}
+
+\includecode[\labelprefix]{ex06/vhdl/test_bench.vhd}{[Test bench: Multi Counter Tester]Test setuppet \coderef[\labelprefix]{ex06/vhdl/test_bench.vhd}, sat op i vores test bench.}{linerange=37-45}
+
 
 % Results
 \subsubsection{Resultater}
@@ -18,5 +33,5 @@
 
 % Conclusion
 \subsubsection{Konklusion}
-   
+
 }
