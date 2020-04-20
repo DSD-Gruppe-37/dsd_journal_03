@@ -1,42 +1,57 @@
 {
-\newcommand{\labelprefix}{{src5-4}}    
-\subsection{8-input NAND Gate}
+    \newcommand{\labelprefix}{{src5-4}}    
 
-% Intro 
-\subsubsection{Introduktion}
+    \subsection{8-input NAND Gate}
 
-I denne opgave designede vi en \textit{n}-input \texttt{NAND}-gate. 
-Formålet med øvelsen er at udnytte VHDL's loopfunktion, og desuden afprøve \texttt{generic} funktionerne. Sidst nævnte muliggøre \textit{n}-inputtet, da vi med denne selv kan vælge antallet af inputs. 
+    % Intro 
+    \subsubsection{Introduktion}
+
+    I denne opgave skal der implementeres en 8-input NAND-gate. Dette giver anledning til at afprøve VHDLs \texttt{FOR-LOOP}. Desuden er det også en anledning til at bruge \texttt{generics} for at implementere en \textit{n}-input NAND-gate.
+
+    % Design
+    \subsubsection{Design og implementering}
+
+    I vores design er vi sprunget direkte til en generisk implementation. Dette ses på \coderef[\labelprefix]{ex05/vhdl/nand_8.vhd} hvor det på linje 2 ses at vi har brugt \texttt{GENERIC} til at gøre denne entity skalerbar.
+    Den generiske værdi har en default på 8, således at NAND-gaten er 8-input medmindre andet specificeres.
+    Værdi \texttt{bits} bruges til at sætte input signal størrelsen på linje 4 og til at definere vores loop range på linje 16.
+
+    \includecode[\labelprefix]{ex05/vhdl/nand_8.vhd}{Generic input NAND-gate entity og arkitektur}{firstline=5}
+
+    % Results
+    \subsubsection{Resultater}
+
+    NAND-gaten kobles til switches og en LED i en testbench som set på \coderef[\labelprefix]{ex05/vhdl/nand_8_tester.vhd}.
+
+    \includecode[\labelprefix]{ex05/vhdl/nand_8_tester.vhd}{Testbench til 8-input NAND-gate}{firstline=6}
+
+    Desuden har vi lavet en funktionel simulation for at teste at alle kombinationer af inputs giver det rigtige resultat.
+    % TODO billede af funktionel simulation
+
+    \dsdtab{
+        \begin{tabular}{p{4cm}p{4cm}p{4cm}}\toprule
+            Input & Forventet output & Reelt output \\\midrule
+            \texttt{00000000} & \texttt{1} & \texttt{1} \\\midrule
+            \texttt{01111110} & \texttt{0} & \texttt{0} \\\midrule
+            \texttt{00110011} & \texttt{0} & \texttt{0} \\\bottomrule
+        \end{tabular}
+        }{Test case for 8 input \texttt{NAND}}{eightInputNand}
+        
 
 
-% Design
-\subsubsection{Design og implementering}
-
-For at lave en 8-input \texttt{NAND}, satte vi \texttt{generic} størrelsen til \texttt{+8}.
-
-\includecode[\labelprefix]{ex05/vhdl/nand_8.vhd}{Generic input \texttt{NAND} entity og arkitektur}{}
-
-% Results
-\subsubsection{Resultater}
+    \dsdfig{ex5-4-8_bit_NAND}{0.8\linewidth}{RTL view: 8 bit \texttt{NAND}}
 
 
-\dsdtab{
-    \begin{tabular}{p{4cm}p{4cm}p{4cm}}\toprule
-        Input & Forventet output & Reelt output \\\midrule
-        \texttt{00000000} & \texttt{1} & \texttt{1} \\\midrule
-        \texttt{01111110} & \texttt{0} & \texttt{0} \\\midrule
-        \texttt{00110011} & \texttt{0} & \texttt{0} \\\bottomrule
-    \end{tabular}
-    }{Test case for 8 input \texttt{NAND}}{eightInputNand}
-    
+    \dsdfig{ex5-4-32_bit_NAND}{0.5\linewidth}{RTL view: 32 bit \texttt{NAND}}
 
+    % Discussion
+    \subsubsection{Diskussion}
 
-\dsdfig{ex5-4-8_bit_NAND}{0.8\linewidth}{RTL view: 8 bit \texttt{NAND}}
+    Vi ser at det vha. \texttt{FOR-LOOP} er nemt at bygge delblokke der gentager det samme logik mange gange, vi ser netop i RTL-viewene at vores loops bliver mappet direkte over på \textit{n}-input AND-gates og en inverter, som det forventes af en NAND-gate.
+    Et loop spiller desuden godt sammen med generiske entities, da de generiske værdier kan bruges til at definere ranges.
+    Vi ser af den grund at det er nemt med et loop at implementere \textit{n}-input gates af mange forskellige slags!
 
+    % Conclusion
+    \subsubsection{Konklusion}
 
-\dsdfig{ex5-4-32_bit_NAND}{0.5\linewidth}{RTL view: 32 bit \texttt{NAND}}
-
-% Discussion
-\subsubsection{Diskussion}
-% Conclusion
-\subsubsection{Konklusion}}
+    Vi fik løst opgaven om at implementere en 8-input NAND-gate og desuden gjorde vi dette ved at lave den generisk, så denne NAND-gate kan skaleres til \textit{n}-input, hvor mange man nu lige skal bruge.
+}
