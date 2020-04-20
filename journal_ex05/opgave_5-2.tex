@@ -13,31 +13,11 @@ Målet med denne opgave var at skabe basen til et FPGA baseret spil, hvori en sp
 
 For at spillet kan muligøres, skal der laves en række elementer som udgøre selve spillets kerne.
 
+
 Alle elementer indeholder desuden:
 \includecode[\labelprefix]{ex05/vhdl/latch.vhd}{\texttt{ieee} standard}{linerange={0-3}}
 
-\paragraph{Latch}
-Først er lavet en latch,\coderef{ex05/vhdl/latch.vhd}. Denne har til formål at faste holde en værdi, når der trykkes på \texttt{set}.
-
-\includecode[\labelprefix]{ex05/vhdl/latch.vhd}{Latch entity og arkitektur}{linerange={4-27}}
-
-
-\includecode[\labelprefix]{ex05/vhdl/CompareLogic.vhd}{Compare entity og arkitektur}{linerange={5-32}}
-
-\paragraph{Compare}
-Comparelogikken der er vist i \coderef{ex05/vhdl/CompareLogic.vhd} er sat op via. en række \texttt{if, elsif} statements, der sammenligninger de inputs der er tilstede - men kun når \texttt{tryin} er aktiv, hvilket \texttt{process()} søger for.
-
-\paragraph{Multiplexers}
-\includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Fælles mux entity}{linerange={7-24}}
-Det var tydeligt at binary to 7-segement decoderen bestod af multiplexers - hvilket gør at følgende multiplexers kan skrives på samme måde.
-\includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux2 arkitektur}{linerange={47-58}}
-
-Derfor kunne den let skrives på samme måde, hvilket ses i \coderef{ex05/vhdl/mux.vhd}
-
-\includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux4 arkitektur}{linerange={29-42}}
-Ved at udvide multiplexeren, kunne der ligeledes laves en multiplexer der håndterede visning af 10'ere og 1'ere på de 2 hexdisplays.
-
-\paragraph{Guess Game}
+\subsubsection*{Guess Game}
 Delblokkene blev samlet i en \texttt{Guess Game} entity der udnyttede muligheden for at lave interne signaler.
 
  
@@ -54,40 +34,71 @@ Da koden blev meget lang, er den delt op i flere stykker.
 
 
 
+\subsubsection*{Latch}
+Først er lavet en latch,\coderef[\labelprefix]{ex05/vhdl/latch.vhd}. Denne har til formål at faste holde en værdi, når der trykkes på \texttt{set}.
+
+\includecode[\labelprefix]{ex05/vhdl/latch.vhd}{Latch entity og arkitektur}{linerange={4-27}}
+
+
+\includecode[\labelprefix]{ex05/vhdl/CompareLogic.vhd}{Compare entity og arkitektur}{linerange={5-32}}
+
+\subsubsection*{Compare}
+Comparelogikken der er vist i \coderef[\labelprefix]{ex05/vhdl/CompareLogic.vhd} er sat op via. en række \texttt{if, elsif} statements, der sammenligninger de inputs der er tilstede - men kun når \texttt{tryin} er aktiv, hvilket \texttt{process()} søger for.
+
+\subsubsection*{Multiplexers}
+\includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Fælles mux entity}{linerange={7-14}}
+Det var tydeligt at binary to 7-segement decoderen bestod af multiplexers - hvilket gør at følgende multiplexers kan skrives på samme måde.
+\includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux2 arkitektur}{linerange={37-48}}
+
+Derfor kunne den let skrives på samme måde, hvilket ses i \coderef[\labelprefix]{ex05/vhdl/mux.vhd}
+
+\includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux4 arkitektur}{linerange={19-32}}
+Ved at udvide multiplexeren, kunne der ligeledes laves en multiplexer der håndterede visning af 10'ere og 1'ere på de 2 hexdisplays.
+
+Det hele blev testet i en test bench, som ses 
+\includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{Guess Game test bench}{linerange={46-55}}
 
 % Results
 \subsubsection{Resultater}
-\dsdfig{ex5-2-full-rtl}{0.9\linewidth}{RTL view: Guess game}
+\dsdfig{ex5-2-full-rtl}{12cm}{RTL view: Guess game}
 \dsdfig{ex5-2-full-postmapping}{0.9\linewidth}{Postmapping view: Guess game}
 
 I både \figref{ex5-2-full-rtl} og \figref{ex5-2-full-postmapping}, ses implementationen af de forskellige elementer.
 
+\begin{figure}[H]
+    \centering
+    \dsdsubfig{ex5-2-Latch-rtl}{Latch entity}{}
+    \hfill
+    \dsdsubfig{ex5-2-compare-rtl}{Compare entity}{}
+    \vskip\baselineskip
+    \dsdsubfig{ex5-2-muxfour-rtl}{Muxfour entity}{}
+    \hfill
+    \dsdsubfig{ex5-2-muxtwo-rtl}{Muxtwo entity}{}
+    \caption[RTL view: Guess Game elementer]{Udsnit af RTL views fra de forskellige elementer i Guess Game}\label{tab:ex5-2-rtls}
+\end{figure}
 
+I fig. \ref{tab:ex5-2-rtls} ses udsnit af de forskellige elementers RTL views.
 
-
+\includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{[Test bench: Guess Game]Test bench setup af Guess game't}{linerange=46-55}
 
 \begin{figure}[H]
     \centering
-    \dsdsubfig{ex5-2-Latch-rtl}{Latch entity}
-    \hfill
-    \dsdsubfig{ex5-2-compare-rtl}{Compare entity}
-    \vskip\baselineskip
-    \dsdsubfig{ex5-2-muxfour-rtl}{Muxfour entity}
-    \hfill
-    \dsdsubfig{ex5-2-muxtwo-rtl}{Muxtwo entity}
-    \caption[RTL view: Guess Game elementer]{Udsnit af RTL views fra de forskellige elementer i Guess Game}\label{tab:ex5-2-rtls}
+    \dsdsubfig{ex5-2_SecretValue}{Secret value / correct input}{0.2}
+    \dsdsubfig{ex5-2_Correct}{Input correct}{0.2}
+    \dsdsubfig{ex5-2_loInput}{Low input} {0.2}
+    \dsdsubfig{ex5-2_loGuess}{Input too low} {0.2}
+    \dsdsubfig{ex5-2_hiInput}{High input}{0.2}
+    \dsdsubfig{ex5-2_hiGuess}{Input too high}{0.2}
+    \caption[HEX view: Guess Game]{De forskellige HEX outputs vist.}\label{tab:ex5-2-response}
 \end{figure}
 
 
 
-I fig. \ref{tab:ex5-2-rtls} ses udsnit af de forskellige elementers RTL views.
-
-
-\includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{[Test bench: Guess Game]Test bench setup af Guess game't}{linerange=46-55}
-
-
 % Discussion
 \subsubsection{Diskussion}
+%//TODO Der mangler en diskussion her...
+I denne opgave er der skrevet et \texttt{Latch} modul
+
 % Conclusion
 \subsubsection{Konklusion}
 }

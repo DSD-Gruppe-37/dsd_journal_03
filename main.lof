@@ -1,9 +1,10 @@
 \babel@toc {danish}{}
 \contentsline {figure}{\numberline {5.1}{\ignorespaces RTL view: Binary to 7-segment\relax }}{5}{figure.caption.2}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Postmapping view (udsnit): Binary to 7-segment\relax }}{5}{figure.caption.3}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces RTL view: Guess game\relax }}{10}{figure.caption.20}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Postmapping view: Guess game\relax }}{10}{figure.caption.21}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces RTL view: Guess Game elementer}}{11}{figure.caption.22}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces RTL view: 8 bit \texttt {NAND}\relax }}{13}{figure.caption.26}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces RTL view: 32 bit \texttt {NAND}\relax }}{13}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces RTL view: Guess game\relax }}{11}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Postmapping view: Guess game\relax }}{11}{figure.caption.18}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces RTL view: Guess Game elementer}}{12}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces HEX view: Guess Game}}{13}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces RTL view: 8 bit \texttt {NAND}\relax }}{17}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces RTL view: 32 bit \texttt {NAND}\relax }}{18}{figure.caption.30}%
 \contentsfinish 

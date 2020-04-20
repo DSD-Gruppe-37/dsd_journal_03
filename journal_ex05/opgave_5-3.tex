@@ -1,13 +1,35 @@
+{
+
+\newcommand{\labelprefix}{src5-3}
+
 \subsection{Two Player Guess Game}
 
 % Intro 
 \subsubsection{Introduktion}
+Ved at sammensætte to \texttt{Guess Game} entities kan der laves en 2-player udgave. I denne øvelse er der lagt vægt på brugen af \texttt{when} statements til at gøre dette.
 
 % Design
 \subsubsection{Design og implementering}
+
+\includecode[\labelprefix]{ex05/vhdl/two_player_guess_game.vhd}{Two Player Guess Game Entity}{linerange={5-17}}
+
+\includecode[\labelprefix]{ex05/vhdl/two_player_guess_game.vhd}{[Two Player Guess Game arkitektur og interne signaler]Her ses begyndelsen på \texttt{Two player Guess Game} arkitekturen, samt de signaler der oprettes}{linerange={19-34}}
+
+\includecode[\labelprefix]{ex05/vhdl/two_player_guess_game.vhd}{[Two Player Guess Game arkitektur]Her ses spillerdisplayer, og de to \texttt{Guess Games}}{linerange={36-68}}
+
+\includecode[mux]{ex05/vhdl/two_player_guess_game.vhd}{[Two Player Guess Game arkitektur]Her ses de to multiplexers der holder styr på spillerens valg.}{linerange={69-114}}
+
+De to multiplexers der ses i \coderef[mux]{ex05/vhdl/two_player_guess_game.vhd} blev implementeret vha. \texttt{when} statements, den ene er vist i \coderef[\labelprefix]{ex05/vhdl/mux.vhd}, og den anden er tidliger vist i \coderef[src5-2]{ex05/vhdl/mux.vhd}.
+
+\includecode[\labelprefix]{ex05/vhdl/mux.vhd}{[Two Player Guess Game multiplexers]Her ses de den ene multiplexer der holder styr på spillerens valg.}{linerange={53-70}}
+
+
 % Results
 \subsubsection{Resultater}
+% //TODO Mangler et resultatafsnit...
 % Discussion
 \subsubsection{Diskussion}
+Ved at bruge \texttt{when} statements, kunne vi implementere den multiplexer der holder styr på hvilken spiller der i brug, direkte i den multiplexer entity der allerede var lavet. Desuden kunne en tidligere multiplexer genbruges.
 % Conclusion
-\subsubsection{Konklusion}
+\subsubsection{Konklusion}}
+% //TODO Mangler en konklusion..
