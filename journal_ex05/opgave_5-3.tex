@@ -1,13 +1,33 @@
-\subsection{Two Player Guess Game}
+{
+    \newcommand{\labelprefix}{src5-2}
 
-% Intro 
-\subsubsection{Introduktion}
+    \subsection{Two Player Guess Game}
 
-% Design
-\subsubsection{Design og implementering}
-% Results
-\subsubsection{Resultater}
-% Discussion
-\subsubsection{Diskussion}
-% Conclusion
-\subsubsection{Konklusion}
+    % Intro 
+    \subsubsection{Introduktion}
+
+    I denne opgave udvides vores Guess Game således at det kan håndtere to spil simultant, dvs. at begge spillere kan indtaste et hemmeligt tal som den anden spiller skal forsøge at gætte.
+
+    % Design
+    \subsubsection{Design og implementering}
+
+    Den overordnede implementering er primært strukturel da vi allerede har lavet en indkapslet \texttt{guess\_game} entity.
+    En udgave med to spillere kræver blot 2 instanser af vores spil og multiplexing som bestemmer hvilket spil inputs blev sendt til og outputs bliver læst fra.
+    Desuden tilføjes et ekstra 7-segment display for at vise hvilken spiller der er valgt på nuværende tidspunkt.
+
+    % Results
+    \subsubsection{Resultater}
+
+    % TODO hvor mange latches og andet godt?
+
+    % Discussion
+    \subsubsection{Diskussion}
+
+    % TODO diskussion om antallet af observerede latches (bør være dobbelt af ét guess_game)
+    Igen ser vi at det er nemt at opbygge sit design strukturelt.
+
+    % Conclusion
+    \subsubsection{Konklusion}
+    
+    % TODO konklusion om noget latches, I dunno
+}
