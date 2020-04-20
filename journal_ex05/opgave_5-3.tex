@@ -6,10 +6,13 @@
 
 % Intro 
 \subsubsection{Introduktion}
-Ved at sammensætte to \texttt{Guess Game} entities kan der laves en 2-player udgave. I denne øvelse er der lagt vægt på brugen af \texttt{when} statements til at gøre dette.
+I denne opgave udvides vores Guess Game således at det kan håndtere to spil simultant, dvs. at begge spillere kan indtaste et hemmeligt tal som den anden spiller skal forsøge at gætte.
 
 % Design
 \subsubsection{Design og implementering}
+Den overordnede implementering er primært strukturel da vi allerede har lavet en indkapslet \texttt{guess\_game} entity.
+En udgave med to spillere kræver blot 2 instanser af vores spil og multiplexing som bestemmer hvilket spil inputs blev sendt til og outputs bliver læst fra.
+Desuden tilføjes et ekstra 7-segment display for at vise hvilken spiller der er valgt på nuværende tidspunkt.
 
 \includecode[\labelprefix]{ex05/vhdl/two_player_guess_game.vhd}{Two Player Guess Game Entity}{linerange={5-17}}
 
@@ -38,6 +41,8 @@ Desuden kommer også \coderef[\labelprefix]{ex05/latchreport2p.txt}
 % //TODO Mangler et resultatafsnit...
 % Discussion
 \subsubsection{Diskussion}
+Igen ser vi at det er nemt at opbygge sit design strukturelt.
+
 Ved at bruge \texttt{when} statements, kunne vi implementere den multiplexer der holder styr på hvilken spiller der i brug, direkte i den multiplexer entity der allerede var lavet. Desuden kunne en tidligere multiplexer genbruges.
 % Conclusion
 \subsubsection{Konklusion}}
