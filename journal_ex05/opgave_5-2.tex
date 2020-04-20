@@ -6,12 +6,16 @@
 % Intro 
 \subsubsection{Introduktion}
 
-Målet med denne opgave var at skabe basen til et FPGA baseret spil, hvori en spiller skulle kunne gemme en talværdi i, og derefter skal en anden forsøge at gætte denne værdi. Spillet skal altimens kunne give et visuelt feedback, dette baseret på spillernes input.
+Målet med denne opgave var at skabe et gættespil, hvor en spiller forsøger at gætte en talværdi bestemt af en anden person.
+Spillet skal alt imens kunne give et visuelt feedback, dette baseret på spillernes input.
+Dette lægger grund for brugen af et register der går systemet sekventielt, i stedet for kombinatorisk som de andre vi tidligere har arbejdet med.
 
 % Design
 \subsubsection{Design og implementering}
 
 For at spillet kan muligøres, skal der laves en række elementer som udgøre selve spillets kerne.
+Alle entities indeholder de almindeligt brugte \texttt{library} og \texttt{use} statements som er udeladt for at være lidt mere kortfattet.
+De entities der skal bruges er som følger:
 
 
 Alle elementer indeholder desuden:
@@ -20,7 +24,7 @@ Alle elementer indeholder desuden:
 \subsubsection*{Guess Game}
 Delblokkene blev samlet i en \texttt{Guess Game} entity der udnyttede muligheden for at lave interne signaler.
 
- 
+
 
 Da koden blev meget lang, er den delt op i flere stykker.
 \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game Entity]Her ses selve entitydeklerationen, hvor alle input og output oprettes.}{linerange={0-14}}
@@ -39,6 +43,7 @@ Først er lavet en latch,\coderef[\labelprefix]{ex05/vhdl/latch.vhd}. Denne har 
 
 \includecode[\labelprefix]{ex05/vhdl/latch.vhd}{Latch entity og arkitektur}{linerange={4-27}}
 
+\includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 2]Slutningen af koden, hvor de sidste elementer forbindes, og evt. ubrugte porte bliver der taget hånd om.}{linerange={63-87}}
 
 \includecode[\labelprefix]{ex05/vhdl/CompareLogic.vhd}{Compare entity og arkitektur}{linerange={5-32}}
 
@@ -55,15 +60,21 @@ Derfor kunne den let skrives på samme måde, hvilket ses i \coderef[\labelprefi
 \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux4 arkitektur}{linerange={19-32}}
 Ved at udvide multiplexeren, kunne der ligeledes laves en multiplexer der håndterede visning af 10'ere og 1'ere på de 2 hexdisplays.
 
-Det hele blev testet i en test bench, som ses 
-\includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{Guess Game test bench}{linerange={46-55}}
+Det hele blev testet i en test bench, som ses
+\includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{Guess Game test bench}{linerange={48-57}}
 
 % Results
 \subsubsection{Resultater}
 \dsdfig{ex5-2-full-rtl}{12cm}{RTL view: Guess game}
 \dsdfig{ex5-2-full-postmapping}{0.9\linewidth}{Postmapping view: Guess game}
 
-I både \figref{ex5-2-full-rtl} og \figref{ex5-2-full-postmapping}, ses implementationen af de forskellige elementer.
+\subsubsection*{Latches}
+\includecode[\labelprefix]{ex05/latchreport1p.txt}{Udsnit af output report}{}
+
+Som forventet er opstår der latches i vores \texttt{latch} modul, og disse må være uundgåelige i denne sammenhæng - der skal jo være noget der kan indeholde værdien af den hemmelige værdi, og da vi ikke umiddelbart har hukommelse tilgængeligt, må latches være vejen frem.
+
+% TODO beskrivelse af latches i design
+% TODO billede af compilation med inferred latches(?)
 
 \begin{figure}[H]
     \centering
@@ -78,8 +89,6 @@ I både \figref{ex5-2-full-rtl} og \figref{ex5-2-full-postmapping}, ses implemen
 \end{figure}
 
 I fig. \ref{tab:ex5-2-rtls} ses udsnit af de forskellige elementers RTL views.
-
-\includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{[Test bench: Guess Game]Test bench setup af Guess game't}{linerange=46-55}
 
 \begin{figure}[H]
     \centering
@@ -102,5 +111,3 @@ I denne opgave er der skrevet et \texttt{Latch} modul
 % Conclusion
 \subsubsection{Konklusion}
 }
-
-Denne opgave har vist hvor effektivt VHDL er til at sammensætte elementer. Alt der skal til er en god kodestandard, og et par signaler. Justereinger i et enkelt element kan nemt foretages og implementeres i en hovedfil.
