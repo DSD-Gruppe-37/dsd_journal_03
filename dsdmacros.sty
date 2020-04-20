@@ -154,8 +154,9 @@
 %%% Subfigure
 % #1 filename/label
 % #2 Caption
-\newcommand\dsdsubfig[2]{
-	\dsdsubfigbase{\includegraphics[width=\textwidth]{\dirfigs#1}}{#1}{#2}
+% #3 width 
+\newcommand\dsdsubfig[3]{
+	\dsdsubfigbase{\includegraphics[width=#3\textwidth]{\dirfigs#1}}{#1}{#2}
 }
 
 

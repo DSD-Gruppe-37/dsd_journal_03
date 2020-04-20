@@ -17,75 +17,91 @@
     Alle entities indeholder de almindeligt brugte \texttt{library} og \texttt{use} statements som er udeladt for at være lidt mere kortfattet.
     De entities der skal bruges er som følger:
 
-    \paragraph{Latch}
+    \subsubsection*{Guess Game}
+    Delblokkene blev samlet i en \texttt{guess\_game} entity der blev opbygget strukturelt og udnyttede muligheden for at lave interne signaler.
+
+    Da koden blev meget lang, er den delt op i flere stykker.
+    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game Entity]Her ses selve entitydeklerationen, hvor alle input og output oprettes.}{linerange={0-14}}
+
+    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitektur og interne signaler]Her ses begyndelsen på \texttt{Guess Game} arkitekturen, samt de signaler der oprettes}{linerange={16-21}}
+
+    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 1]Her ses de interne forbindelser mellem de oprettede elementmer.}{linerange={23-63}}
+
+    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 2]Slutningen af koden, hvor de sidste elementer forbindes, og evt. ubrugte porte bliver der taget hånd om.}{linerange={64-87}}
+
+    \subsubsection*{Latch}
     Et register der kan fastholde en værdi. Vores implementation ses på \coderef[\labelprefix]{ex05/vhdl/latch.vhd} er generisk og kan derfor gemme værdier af forskellig størrelse. Denne har til formål at gemme det korrekte tal, når der trykkes på \texttt{set}.
 
     \includecode[\labelprefix]{ex05/vhdl/latch.vhd}{Latch entity og arkitektur}{linerange={5-24}}
 
-    \paragraph{Compare}
+    \subsubsection*{Compare}
     Compare logikken der er vist i \coderef[\labelprefix]{ex05/vhdl/CompareLogic.vhd} er sat op vha. en \texttt{IF} og \texttt{WHEN-ELSE} statement, der sammenligninger de inputs der er tilstede---men kun når \texttt{en} er aktiv, hvilket \texttt{process()} søgrer for.
 
     \includecode[\labelprefix]{ex05/vhdl/CompareLogic.vhd}{Compare entity og arkitektur}{linerange={6-28}}
 
-    \paragraph{Multiplexers}
-    \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Fælles mux entity}{linerange={7-24}}
+    \subsubsection*{Multiplexers}
+    \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Fælles mux entity}{linerange={7-14}}
     Det var tydeligt at binary to 7-segement decoderen bestod af multiplexers - hvilket gør at følgende multiplexers kan skrives på samme måde.
-    \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux2 arkitektur}{linerange={47-58}}
+    \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux2 arkitektur}{linerange={37-48}}
 
-    % TODO reference til de to første mux figurer?
     Derfor kunne den let skrives på samme måde, hvilket ses i \coderef[\labelprefix]{ex05/vhdl/mux.vhd}
 
-    \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux4 arkitektur}{linerange={29-42}}
+    \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux4 arkitektur}{linerange={19-32}}
     Ved at udvide multiplexeren, kunne der ligeledes laves en multiplexer der håndterede visning af 10'ere og 1'ere på de 2 hexdisplays.
 
-    \paragraph{Guess Game}
-    Delblokkene blev samlet i en \texttt{guess\_game} entity der blev opbygget strukturelt og udnyttede muligheden for at lave interne signaler.
-
-    Da koden blev meget lang, er den delt op i flere stykker.
-    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game Entity]Her ses selve entitydeklerationen, hvor alle input og output oprettes.}{linerange={4-13}}
-
-
-    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitektur og interne signaler]Her ses begyndelsen på \texttt{guess\_game} arkitekturen, samt de signaler der oprettes}{linerange={15-20}}
-
-    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 1]Her ses de interne forbindelser mellem de oprettede elementer.}{linerange={23-62}}
-
-    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 2]Slutningen af koden, hvor de sidste elementer forbindes, og evt. ubrugte porte bliver der taget hånd om.}{linerange={63-87}}
+    Det hele blev testet i en test bench, som ses
+    \includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{Guess Game test bench}{linerange={48-57}}
 
     % Results
     \subsubsection{Resultater}
 
     I både \figref{ex5-2-full-rtl} og \figref{ex5-2-full-postmapping}, ses implementationen af de forskellige elementer.
 
-    \dsdfig{ex5-2-full-rtl}{1.0\linewidth}{RTL view: Guess game}
-    \dsdfig{ex5-2-full-postmapping}{1.0\linewidth}{Postmapping view: Guess game}
+    \dsdfig{ex5-2-full-rtl}{12cm}{RTL view: Guess game}
+    \dsdfig{ex5-2-full-postmapping}{0.9\linewidth}{Postmapping view: Guess game}
+
+    \subsubsection*{Latches}
+    \includecode[\labelprefix]{ex05/latchreport1p.txt}{Udsnit af output report}{}
+
+    Som forventet opstår der latches i vores \texttt{latch} modul, og disse må være uundgåelige i denne sammenhæng---der skal jo være noget der kan huske den hemmelige værdi, latches er vejen frem da de netop husker værdier.
+
+    % TODO billede af compilation med inferred latches(?)
 
     \begin{figure}[H]
         \centering
         % TODO opdateres til at matche implementering
-        \dsdsubfig{ex5-2-Latch-rtl}{Latch entity}
+        \dsdsubfig{ex5-2-Latch-rtl}{Latch entity}{}
         \hfill
-        \dsdsubfig{ex5-2-compare-rtl}{Compare entity}
+        \dsdsubfig{ex5-2-compare-rtl}{Compare entity}{}
         \vskip\baselineskip
-        \dsdsubfig{ex5-2-muxfour-rtl}{Muxfour entity}
+        \dsdsubfig{ex5-2-muxfour-rtl}{Muxfour entity}{}
         \hfill
-        \dsdsubfig{ex5-2-muxtwo-rtl}{Muxtwo entity}
+        \dsdsubfig{ex5-2-muxtwo-rtl}{Muxtwo entity}{}
         \caption[RTL view: Guess Game elementer]{Udsnit af RTL views fra de forskellige elementer i Guess Game}\label{tab:ex5-2-rtls}
     \end{figure}
 
     I fig. \ref{tab:ex5-2-rtls} ses udsnit af de forskellige elementers RTL views.
 
     % TODO rettelse af testbench til guess_game
-    \includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{[Test bench: Guess Game]Test bench setup af Guess game't}{linerange=46-55}
+    \begin{figure}[H]
+        \centering
+        \dsdsubfig{ex5-2_SecretValue}{Secret value / correct input}{0.2}
+        \dsdsubfig{ex5-2_Correct}{Input correct}{0.2}
+        \dsdsubfig{ex5-2_loInput}{Low input} {0.2}
+        \dsdsubfig{ex5-2_loGuess}{Input too low} {0.2}
+        \dsdsubfig{ex5-2_hiInput}{High input}{0.2}
+        \dsdsubfig{ex5-2_hiGuess}{Input too high}{0.2}
+        \caption[HEX view: Guess Game]{De forskellige HEX outputs vist.}\label{tab:ex5-2-response}
+    \end{figure}
 
     % Discussion
     \subsubsection{Diskussion}
 
     % TODO beskrivelse af latches i design
-    % TODO billede af compilation med inferred latches(?)
+    I denne opgave er der skrevet et \texttt{Latch} modul
 
     % Conclusion
     \subsubsection{Konklusion}
 
     % TODO tilføjelse om registre og latches
-    Denne opgave har vist hvor effektivt VHDL er til at sammensætte elementer. Alt der skal til er en god kodestandard, og et par signaler. Justereinger i et enkelt element kan nemt foretages og implementeres i en hovedfil.
 }
