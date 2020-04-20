@@ -1,52 +1,50 @@
 {
     \newcommand{\labelprefix}{src5-1}
 
-\subsection{Binary to 7-Segment Decoder Using “CASE”}
+    \subsection{Binary to 7-Segment Decoder Using “CASE”}
 
-% Intro 
-\subsubsection{Introduktion}
+    % Intro 
+    \subsubsection{Introduktion}
 
-I denne opgave vil vi igen skrive en Binary to 7-segment decoder, dog vil vi bruge \texttt{case} statements istedet.
+    I denne opgave vil vi igen skrive en Binary to 7-segment decoder. Vi har tidligere lavet en med \texttt{WITH-SELECT} syntaks, denne gang laves den i en \texttt{process} med en \texttt{CASE} statement.
 
-Funktionaliteten bør i teorien være det sammen som hvis vi brugte \texttt{when} statements.
+    Funktionaliteten bør være den sammen som vores forrige kombinatoriske implementation med \texttt{WITH-SELECT} statements.
 
-% Design
-\subsubsection{Design og implementering}
-Decoderen blev designet på samme måde som i øvelse 4, og med de samme betingelsesværdier, dog med \texttt{case} i stedet. De to syntaxer minder om hinanden, men der er dog nogle forskelle. Resulatet  af koden ses i \coderef[\labelprefix]{ex05/vhdl/bin2sevenseg.vhd}
+    % Design
+    \subsubsection{Design og implementering}
 
-\includecode[\labelprefix]{ex05/vhdl/bin2sevenseg.vhd}{Binary to 7-segment entity og arkitektur}{linerange={4-36}}
+    Decoderen blev designet på samme måde som i Øvelse 4, og med de samme betingelsesværdier, dog med en \texttt{CASE} i stedet. De to syntakser minder om hinanden, men der er dog nogle forskelle. Implementationen ses i \coderef[\labelprefix]{ex05/vhdl/bin2hex.vhd}
 
-% Results
-\subsubsection{Resultater}
+    \includecode[\labelprefix]{ex05/vhdl/bin2hex.vhd}{Binary to 7-segment entity og arkitektur}{linerange={5-36}}
 
-\dsdfig{ex5-1-rtl}{0.4\linewidth}{RTL view: Binary to 7-segment}
-\dsdfig{ex5-1-post-mapping}{0.8\linewidth}{Postmapping view (udsnit): Binary to 7-segment}
+    % Results
+    \subsubsection{Resultater}
 
+    \dsdfig{ex5-1-rtl}{0.5\linewidth}{RTL view: Binary to 7-segment}
+    \dsdfig{ex5-1-post-mapping}{0.8\linewidth}{Postmapping view (udsnit): Binary to 7-segment}
 
+    For at teste funktionaliteten blev der også lavet en testcase, denne ses i \tabref{7segmentTestCase}, og dens testbench kode ses i \coderef[\labelprefix]{ex05/vhdl/bin2hex_tester.vhd}
 
-
-
-For at teste Funktionaliteten blev blev der også lavet en testcase, denne ses i \tabref{7segmentTestCase}, og dens testbench kode ses i \coderef[\labelprefix]{ex05/vhdl/test_bench.vhd}
-
-\dsdtab{
-    \begin{tabular}{p{4cm}p{4cm}p{4cm}}\toprule
-        Input & Forventet display & Reelt display \\\midrule
-        \texttt{0101} & \texttt{5} & \texttt{5} \\\midrule
-        \texttt{0111} & \texttt{7} & \texttt{7} \\\midrule
-        \texttt{1111} & \texttt{F} & \texttt{F} \\\bottomrule
-    \end{tabular}
-    }{Test case for binary to 7-segment }{7segmentTestCase}
-    
-    \includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{[Test bench: Binary to 7-segment] Test bench setup, hvori Binary to 7-segment afprøves}{linerange={57-64}}
-
-% Discussion
-\subsubsection{Diskussion}
-
-Det ses på \figref{ex5-1-rtl} at den igen består af en række multiplexers. Der er altså ikke den store forskel på \texttt{with} og \texttt{case} i dette tilfælde. Post-mapping viewet i \figref{ex5-1-post-mapping} viser heller ikke nogen forskel, i forhold til sidste øvelse.
-
-% Conclusion
-\subsubsection{Konklusion}
-
-Der er ingen reel forskel på, om man implementere en binary to 7-segment vha. \texttt{case} eller \texttt{with} statements - begge er lige velfungerende. Det bør dog undersøges om der er en forskel i ren praksis.
+    \dsdtab{
+        \begin{tabular}{p{4cm}p{4cm}p{4cm}}\toprule
+            Input & Forventet display & Reelt display \\\midrule
+            \texttt{0101} & \texttt{5} & \texttt{5} \\\midrule
+            \texttt{0111} & \texttt{7} & \texttt{7} \\\midrule
+            \texttt{1111} & \texttt{F} & \texttt{F} \\\bottomrule
+        \end{tabular}
+        }{Test case for binary to 7-segment }{7segmentTestCase}
         
+        \includecode[\labelprefix]{ex05/vhdl/bin2hex_tester.vhd}{[Test bench: Binary to 7-segment] Test bench setup, hvori Binary to 7-segment afprøves}{linerange={6-23}}
+
+    % Discussion
+    \subsubsection{Diskussion}
+
+    Det ses på \figref{ex5-1-rtl} at den ligesom i det kombinatoriske design består af en række multiplexers.
+    Der er altså ikke den store forskel på \texttt{WITH-SELECT} og \texttt{CASE} i dette tilfælde. Post-mapping viewet i \figref{ex5-1-post-mapping} viser heller ikke nogen forskel, i forhold til sidste øvelse.
+
+    % Conclusion
+    \subsubsection{Konklusion}
+
+    Der er ingen reel forskel på, om man implementere en binary to 7-segment vha. \texttt{CASE} eller \texttt{WITH-SELECT} statements---begge er lige velfungerende. Det bør dog undersøges om der er en forskel i ren praksis.
+            
 }
