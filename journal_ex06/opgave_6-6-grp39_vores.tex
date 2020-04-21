@@ -1,0 +1,71 @@
+\begin{table}[h]
+    \small
+    \begin{tabularx}{\textwidth}{p{3.5cm}Xp{5mm}X}
+
+        \toprule
+        \multicolumn{4}{c}{ARITHMETIC AND LOGICAL OPERATORS IN VHDL}                                                                                                                                                \\\midrule
+        Exe 1: Signed and Unsigned Arithmetic &                                                                                                     &   &                                                           \\
+                                              & 1b) er der en funktionel simulering?                                                                & 5 & Det er vidst en timing simulering, men det viser stadig funktionaliteten.              \\
+                                              & 1c) er der en tester eller testbench kode i journalen?                                              & 5 & Den ses ved Tab. 1                              \\
+                                              & 1g) er der tilføjet kode til at håndtere Cin og Cout?                                               & 5 & Det bliver håndteret i Tab. 2               \\
+                                              & 1g) og er resize-problematikken beskrevet?                                                          & 1 & Nej, men der er taget højde for det i koden                               \\
+                                              &                                                                                                     &   &                                                           \\ \midrule
+        Exe 2: Concatenation                  &                                                                                                     &   &                                                           \\
+                                              & 2a) er concatenate-koden implementeret og vist?                                                     & 5 & Den ses i Tab. 6                                     \\
+                                              & 2a) er antallet af LE lig med 0 (som er det korrekte antal)?                                        & 5 & Ifølge billedteksten ved fig 7 benyttes der ingen LE                       \\
+                                              & 2a) er der svaret på, hvordan skifte operationerne er implementeret på FPGA’en?                     & 5 & Der er flere gange forklaret at der blot flyttes rundt på interne forbindelser. Dette ses også på Technology map i figur 8.            \\
+                                              & Er der en tilpas mængde test simuleringer og fotos, plus tilhørende tekst?                          & 4 & Ingen test på DE2, hvilket er undskyldt. Ellers super godt illustreret og forklaret.    \\
+                                              &                                                                                                     &   &                                                           \\\midrule
+        Exe 3: Multiplication                 &                                                                                                     &   &                                                           \\
+                                              & 3c) er den en resultat-tabel i journalen for forbruget af LE’er?                                    & 5 & Den ses i Tab. 12                            \\
+                                              & 3c) er der lavet et LE-vs-bitsize plot for bitsizes=32,16,8,4,3,2,1?                                & 5 & I figur 11                \\
+                                              & 3c) er der svaret på, hvordan LE skalerer mht. bitstørrelse-n (ca. n\textasciicircum{}2)?           & 3 & Der er nævnt at "dette er en potensieludvikling"                                \\
+                                              & 3d) er der en resultat-tabel over antallet af LE’er vdr. multiplikation med en konstant?            & 0 & Multiplikation med konstant er ikke nævnt i jounalen                      \\
+                                              & 3d) er der svaret på, hvorfor multiplikation med 2,4,8,16 osv. (2\textasciicircum{}k) giver 0 LE’s? & 0 &Ingen multiplikation med konstant \\
+                                              & Hint: gange med 2,4 eller 2\textasciicircum{}k giver blot et venstreskift 1, 2 eller k gange.       &   &                                                           \\
+                                              &                                                                                                     &   &                                                           \\\midrule
+    \end{tabularx}
+\end{table}
+\begin{table}[h]
+    \small
+    \begin{tabularx}{\textwidth}{p{3.5cm}Xp{5mm}X}
+
+        \toprule
+        \multicolumn{4}{c}{DATAFLOW-STYLE COMBINATORIAL DESIGNS IN VHDL}                                                                                                                                                                        \\\midrule
+        Exe 1: Binary to 7-Segment Decoder Using “WITH-SELECT” &                                                                                                &   &                                                                           \\
+                                                               & 1a) er koden til 7-segment-dekoderen vist?                                                     & 5 & Tab. 14 Fint med kommentarer.\\
+                                                               & 1b) er RTL-viewet vist?                                                                        & 5 & I figur 13 \\
+                                                               & 1b) er der evt. svaret på hvorfor RTL-vieweren ser ud som den gør?                             & 5& Ja. Tre linjer tekst henover figuren der fint forklarer hvad der sker \\
+                                                               &                                                                                                &   &                                                                           \\\midrule
+        Exe 2: Demultiplexing Using “WHEN”                     &                                                                                                &   &                                                                           \\
+                                                               & 1b) er der kode for hex-mux’en (og evt testeren) i journalen?                                  & 5 & Fig. 50 viser koden og fig. 52 viser testen.                              \\
+                                                               & 1c) er der kommenteret på ”inferred latches” i journalen,                                      & 5 & "Ja: "Vi så ingen inferred latches i vores design, da vi som set på source code table 16 linje 40 har husket en assignment uden condition, som bliver brugt i alle de tilfælde der ikke eksplicit er taget højde for." \\
+                                                               & dvs. har de fundet nogle og/eller dokumenteret at de er blevet håndteret/fjernet?              &   &                                                                           \\
+                                                               &                                                                                                &   &                                                                           \\\midrule
+        Exe 2: Table Lookup                                    &                                                                                                &   &                                                                           \\
+                                                               & 1a) er opgaven ”Table Lookup” implementeret som en rigtig lookup tabel?                        & 5 & Ja, det ses i Tab. 18                                             \\
+                                                               & (dvs. IKKE via en with-select eller en when-sprogkonstruktion, men som en rigtig lookup tabel) &   &                                                                           \\
+                                                               & 1b) er der dokumentation for testen?                                                           & 0 & Nej, men dette er undskyldt grundet lukket skole.                     \\
+                                                               &                                                                                                &   &                                                                           \\\midrule
+        Exe 3: Bidirectional Ports (OPTIONAL)                  &                                                                                                &   &                                                                           \\
+                                                               & Super bonus, hvis i har lavet denne ekstra opgave!                                             &  &                 \\
+                                                               &
+    \end{tabularx}
+\end{table}
+\begin{table}[h]
+    \small
+    \begin{tabularx}{\textwidth}{p{3.5cm}Xp{5mm}X} &                                                        &                                                                          \\\midrule
+        \multicolumn{4}{c}{GENERELT}                                                                                                                                       \\\midrule
+                                       &                                                        &   &                                                                      \\
+                                       & Er der forside med DSD projekt gruppenr navne og id'er & 5 &Simpel og elegant, med den krævede information                                \\
+                                       & Er der svaret på alle underopgaver a), b), c) osv?     & 4 & "Paranteser ved delvist eller ikke udførte opgaver: 
+                                       Aritmatik: a(b)c(d)e(f)g ok, concat: ab(c) ok, mult: a(b)c(d) partly ok , Bin2syv: a(b) ok, whenelse: ab(c) ok, table: a(b) ok"                                           \\
+                                       & Er der en introduktion til hver opgave?                & 5 &Fine indledninger, Der opsummerer hvad der er udføres \\
+                                       & Er der en resultater og diskussion til hver opgave?    & 5 & Gode og fyldestgørende tekster, der forklarer resulaterne meget godt.                 \\
+                                       & Er der en konklusion til hver opgave?                  & 5 & God opsummering af hvad der er sket, og hvad der er lært.                 \\
+                                       & Er al VHDL kode formateret (indenteret) for læsbarhed? & 5 & God brug af linjeskift og indeteringer.                 \\
+                                       & Hvad vil du overordnet give opgaven af point?          & 4 & Super flot journal med proffesionelt udtryk. Ærgerligt at Multiplication d) opgaven ikke er udført.                  \\ \bottomrule
+    \end{tabularx}
+\end{table}
+
+
