@@ -23,20 +23,45 @@
     % Results
     \subsubsection{Resultater}
 
-    % TODO RTL view?
-    % TODO funktionel simulation af count_ones ELLER billeder af at den virker?
-    Vi ser at count\_ones virker som forventet og tæller hvor mange 1'ere der er på input signalet (altså hvor mange switches er slået til).
+    På RTL-viewet for vores \texttt{count\_ones} på fig. \ref{tab:ex5-5-count-ones} ses det at komponent laves som en kæde af additioner og multiplexere, der bruger vores input som deres selects.
+
+    \begin{figure}[H]
+        \centering
+        \dsdsubfig{ex5-5_rtl-view_left}{Venstre side af RTL-viewet}{}
+        \dsdsubfig{ex5-5_rtl-view_right}{Højre side af RTL-viewet}{}
+        \caption[RTL view af count\_ones]{Venstre og højre side af count\_ones RTL-view}\label{tab:ex5-5-count-ones}
+    \end{figure}
+
+    Vi har testet vores 1-tæller på DE2 boardet og har fået resultaterne som set i \tabref{oneCounterTest}.
+
+    \dsdtab{
+        \begin{tabular}{p{4cm}p{4cm}p{4cm}}\toprule
+            Input & Forventet på display & Reelt på display \\\midrule
+            \texttt{01001100} & \texttt{3} & \texttt{3} \\\midrule
+            \texttt{10110011} & \texttt{5} & \texttt{5} \\\midrule
+        \end{tabular}
+        }{Test case for 1-tælleren}{oneCounterTest}
+
+    På fig. \ref{tab:ex5-5-count-ones-de2} ses vores test på DE2 svarende til test casene ovenfor.
+
+    \begin{figure}[H]
+        \centering
+        \dsdsubfig{ex5-5_3}{Test case 1}{}
+        \dsdsubfig{ex5-5_5}{Test case 2}{}
+        \caption[count\_ones test cases]{Test på DE2 board}\label{tab:ex5-5-count-ones-de2}
+    \end{figure}
 
     % Discussion
     \subsubsection{Diskussion}
 
+    Vi ser at count\_ones virker som forventet og tæller hvor mange 1'ere der er på input signalet (altså hvor mange switches er slået til).
+
     \texttt{FOR-LOOP} giver god mening når man vil gentage ikke-triviel kode et bestemt antal gange.
     Som set tidligere gør sådanne loops det også nemt at lave generiske komponenter.
     I denne opgave kunne man nemt introducere en \texttt{GENERIC} til at skalere input signalet og loopet.
-    % TODO diskussion om rtl'et?
 
     % Conclusion
     \subsubsection{Konklusion}
 
-    Loops er meget nyttige. :-) % TODO ingen ide om hvad man kan konkludere
+    Vi har set at man i loops også sagtens kan bruge behavioural statements så som \texttt{IF} og dermed kan bruge loops til at skrive kompleks kode der skal gentages en bestemt antal gange.
 }

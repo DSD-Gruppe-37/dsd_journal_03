@@ -20,32 +20,24 @@
     % Results
     \subsubsection{Resultater}
 
-    NAND-gaten kobles til switches og en LED i en testbench som set på \coderef[\labelprefix]{ex05/vhdl/nand_8_tester.vhd}.
+    NAND-gaten kobles til switches og en LED i en testbench som set i \coderef[\labelprefix]{ex05/vhdl/nand_8_tester.vhd}.
 
     \includecode[\labelprefix]{ex05/vhdl/nand_8_tester.vhd}{Testbench til 8-input NAND-gate}{}
 
-    Desuden har vi lavet en funktionel simulation for at teste at alle kombinationer af inputs giver det rigtige resultat.
-    % TODO billede af funktionel simulation
-    \dsdfig{ex5-4_nand_8_functional_simulation}{0.8\linewidth}{Funktionel simulation af 8-input NAND}
-
-    \dsdtab{
-        \begin{tabular}{p{4cm}p{4cm}p{4cm}}\toprule
-            Input & Forventet output & Reelt output \\\midrule
-            \texttt{00000000} & \texttt{1} & \texttt{1} \\\midrule
-            \texttt{01111110} & \texttt{0} & \texttt{0} \\\midrule
-            \texttt{00110011} & \texttt{0} & \texttt{0} \\\bottomrule
-        \end{tabular}
-        }{Test case for 8 input \texttt{NAND}}{eightInputNand}
-        
-
+    RTL-view for både en 8-input og 32-input NAND-gate ses på henholdsvis \figref{ex5-4-8_bit_NAND} og \figref{ex5-4-32_bit_NAND}.
 
     \dsdfig{ex5-4-8_bit_NAND}{0.8\linewidth}{RTL view: 8 bit \texttt{NAND}}
-
-
     \dsdfig{ex5-4-32_bit_NAND}{0.5\linewidth}{RTL view: 32 bit \texttt{NAND}}
+
+    Desuden har vi lavet en funktionel simulation for at teste at komponenten virker korrekt. Simulationen blev lavet med grænseværdierne \texttt{00000000} og \texttt{11111111}, og nogle tilfælde værdier ind imellem.
+    Den funktionelle test ses på \figref{ex5-4_nand_8_functional_sim}.
+
+    \dsdfig{ex5-4_nand_8_functional_sim}{1.0\linewidth}{Funktionel simulation af 8-input NAND}
 
     % Discussion
     \subsubsection{Diskussion}
+
+    Ud fra den funktionelle test ser vi at komponenten virker som den skal, altså den holder \texttt{1} på outputtet i alle situation undtagen den hvor alle inputs er \texttt{1}. Dette stemmer overens med sandhedstabellen for NAND-gates.
 
     Vi ser at det vha. \texttt{FOR-LOOP} er nemt at bygge delblokke der gentager det samme logik mange gange, vi ser netop i RTL-viewene at vores loops bliver mappet direkte over på \textit{n}-input AND-gates og en inverter, som det forventes af en NAND-gate.
     Et loop spiller desuden godt sammen med generiske entities, da de generiske værdier kan bruges til at definere ranges.

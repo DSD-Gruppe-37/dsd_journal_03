@@ -14,7 +14,7 @@
     I designet af uret kaskadekobles seks counters, to til henholdsvis sekunder, minutter og timer. Clock generatoren bruges som clock signal til den 1'er sekund counteren. 1'er sekund counterens carry bruges som clock til 10'er sekund counteren osv. op til timernes 10'er counter.
 
     \subsubsection*{Indkapslet håndtering af 1'er og 10'er}
-    Da parene for 1'er og 10'er counters fungerer ens for sekunder, minutter og timer, har vi for nemheds skyld indkapslet dem en entity til at håndtere begge samtidig, denne ses på \coderef[\labelprefix]{ex06/vhdl/TwoCounters.vhd}.
+    Da parene for 1'er og 10'er counters fungerer ens for sekunder, minutter og timer, har vi for nemheds skyld indkapslet dem i en entity til at håndtere begge samtidig, denne ses på \coderef[\labelprefix]{ex06/vhdl/TwoCounters.vhd}.
 
     \includecode[\labelprefix]{ex06/vhdl/TwoCounters.vhd}{Entity til håndtering af sammenhørende 1'er og 10'er counters}{linerange={6-6,9-9,11-13,17-30,33-77}}
 

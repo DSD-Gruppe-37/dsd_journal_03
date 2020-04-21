@@ -37,7 +37,7 @@
     \subsubsection*{Compare}
     Compare logikken der er vist i \coderef[\labelprefix]{ex05/vhdl/CompareLogic.vhd} er sat op vha. en \texttt{IF} og \texttt{WHEN-ELSE} statement, der sammenligninger de inputs der er tilstede---men kun når \texttt{en} er aktiv, hvilket \texttt{process()} søgrer for.
 
-    \includecode[\labelprefix]{ex05/vhdl/CompareLogic.vhd}{Compare entity og arkitektur}{linerange={6-28}}
+    \includecode[\labelprefix]{ex05/vhdl/CompareLogic.vhd}{Compare entity og arkitektur}{linerange={6-33}}
 
     \subsubsection*{Multiplexers}
     \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Fælles mux entity}{linerange={7-14}}
@@ -49,27 +49,22 @@
     \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux4 arkitektur}{linerange={19-32}}
     Ved at udvide multiplexeren, kunne der ligeledes laves en multiplexer der håndterede visning af 10'ere og 1'ere på de 2 hexdisplays.
 
-    Det hele blev testet i en test bench, som ses
-    \includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{Guess Game test bench}{linerange={48-57}}
-
     % Results
     \subsubsection{Resultater}
+
+    Guess Game blev testet i en testbench, som ses på \coderef[\labelprefix]{ex05/vhdl/guess_game_tester.vhd}.
+
+    \includecode[\labelprefix]{ex05/vhdl/guess_game_tester.vhd}{Guess Game testbench}{}
 
     I både \figref{ex5-2-full-rtl} og \figref{ex5-2-full-postmapping}, ses implementationen af de forskellige elementer.
 
     \dsdfig{ex5-2-full-rtl}{12cm}{RTL view: Guess game}
     \dsdfig{ex5-2-full-postmapping}{0.9\linewidth}{Postmapping view: Guess game}
 
-    \subsubsection*{Latches}
-    \includecode[\labelprefix]{ex05/latchreport1p.txt}{Udsnit af output report}{}
-
-    Som forventet opstår der latches i vores \texttt{latch} modul, og disse må være uundgåelige i denne sammenhæng---der skal jo være noget der kan huske den hemmelige værdi, latches er vejen frem da de netop husker værdier.
-
-    % TODO billede af compilation med inferred latches(?)
+    I fig. \ref{tab:ex5-2-rtls} ses udsnit af de forskellige elementers RTL views.
 
     \begin{figure}[H]
         \centering
-        % TODO opdateres til at matche implementering
         \dsdsubfig{ex5-2-Latch-rtl}{Latch entity}{}
         \hfill
         \dsdsubfig{ex5-2-compare-rtl}{Compare entity}{}
@@ -80,9 +75,13 @@
         \caption[RTL view: Guess Game elementer]{Udsnit af RTL views fra de forskellige elementer i Guess Game}\label{tab:ex5-2-rtls}
     \end{figure}
 
-    I fig. \ref{tab:ex5-2-rtls} ses udsnit af de forskellige elementers RTL views.
+    \subsubsection*{Latches}
 
-    % TODO rettelse af testbench til guess_game
+    Vi ser ud fra compilation report i Listing \coderefsimple[\labelprefix]{ex05/latchreport1p.txt} at der bliver lavet 8 inferred latches.
+    \includecode[\labelprefix]{ex05/latchreport1p.txt}{Udsnit af output report}{}
+
+    Desuden har vi testet spillet på vores DE2 board og observeret input-output relationerne som set i fig. \ref{tab:ex5-2-response}.
+
     \begin{figure}[H]
         \centering
         \dsdsubfig{ex5-2_SecretValue}{Secret value / correct input}{0.2}
@@ -97,11 +96,10 @@
     % Discussion
     \subsubsection{Diskussion}
 
-    % TODO beskrivelse af latches i design
-    I denne opgave er der skrevet et \texttt{Latch} modul
+    Som vi så i compilation report i Listing \coderefsimple[\labelprefix]{ex05/latchreport1p.txt} blev der lavet 8 inferred latches, hvilket stemmer overens med vores forventning. Hele ideen med vores latch komponent er jo at den skal gemme en værdi som et register på \emph{n} bits, hvor vi i dette tilfælde har sat \(n = 8\) og derfor forventede 8 latches.
 
     % Conclusion
     \subsubsection{Konklusion}
 
-    % TODO tilføjelse om registre og latches
+    Vi har haft success med at bruge latches til at gemme værdi, hvilket er en meget grundlæggende ting at kunne for at lave mere komplekse sekventielle systemer.
 }
