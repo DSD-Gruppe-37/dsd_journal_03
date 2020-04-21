@@ -1,13 +1,42 @@
-\subsection{Count Ones}
+{
+    \newcommand{\labelprefix}{src5-5}
 
-% Intro 
-\subsubsection{Introduktion}
+    \subsection{Count Ones}
 
-% Design
-\subsubsection{Design og implementering}
-% Results
-\subsubsection{Resultater}
-% Discussion
-\subsubsection{Diskussion}
-% Conclusion
-\subsubsection{Konklusion}
+    % Intro 
+    \subsubsection{Introduktion}
+
+    I denne del af øvelsen vil vi forsøge at tælle antallet af 1'ere i en array af data vha. et \texttt{FOR-LOOP}.
+
+    % Design
+    \subsubsection{Design og implementering}
+
+    Vores implementation baseret på opgaven ses i \coderef[\labelprefix-ent]{ex05/vhdl/count_ones.vhd} og \coderefsimple[\labelprefix-arch]{ex05/vhdl/count_ones.vhd}.
+    Processen har \texttt{SW} i sin sensitivity liste, hvilket vil sige den kører hver gang \texttt{SW} ændrer sig.
+    \texttt{FOR-LOOP}'et gennemgår alle bits i input signalet og tæller en intern process variabel op hvis der er et 1-tal.
+    Talte 1'ere assignes til et signal i arkitekturen som bruges til at vise tallet på et 7-segment display.
+
+    \includecode[\labelprefix-ent]{ex05/vhdl/count_ones.vhd}{Interface til count\_ones entity}{linerange={6-11}}
+
+    \includecode[\labelprefix-arch]{ex05/vhdl/count_ones.vhd}{Arkitektur til optælling af 1'ere vha. \texttt{FOR-LOOP}}{linerange={13-37}}
+
+    % Results
+    \subsubsection{Resultater}
+
+    % TODO RTL view?
+    % TODO funktionel simulation af count_ones ELLER billeder af at den virker?
+    Vi ser at count\_ones virker som forventet og tæller hvor mange 1'ere der er på input signalet (altså hvor mange switches er slået til).
+
+    % Discussion
+    \subsubsection{Diskussion}
+
+    \texttt{FOR-LOOP} giver god mening når man vil gentage ikke-triviel kode et bestemt antal gange.
+    Som set tidligere gør sådanne loops det også nemt at lave generiske komponenter.
+    I denne opgave kunne man nemt introducere en \texttt{GENERIC} til at skalere input signalet og loopet.
+    % TODO diskussion om rtl'et?
+
+    % Conclusion
+    \subsubsection{Konklusion}
+
+    Loops er meget nyttige. :-) % TODO ingen ide om hvad man kan konkludere
+}
