@@ -1,22 +1,56 @@
 {
     \newcommand{\labelprefix}{src6-3}
 
-\subsection{Counter - Six Digit}
+    \subsection{Counter - Six Digit}
 
-% Intro 
-\subsubsection{Introduktion}
+    % Intro 
+    \subsubsection{Introduktion}
 
-% Design
-\subsubsection{Design og implementering}
+    I denne opgave vil vi kombinere vores \texttt{multi\_counter} fra opgave 1 og \texttt{clock\_gen} fra opgave 2 til at lave et ur der viser timer, minutter og sekunder på seks 7-segment displays.
 
-% Results
-\subsubsection{Resultater}
+    % Design
+    \subsubsection{Design og implementering}
 
+    I designet af uret kaskadekobles seks counters, to til henholdsvis sekunder, minutter og timer. Clock generatoren bruges som clock signal til den 1'er sekund counteren. 1'er sekund counterens carry bruges som clock til 10'er sekund counteren osv. op til timernes 10'er counter.
 
-% Discussion
-\subsubsection{Diskussion}
+    Da parene for 1'er og 10'er counters fungerer ens for sekunder, minutter og timer, har vi for nemheds skyld indkapslet dem en entity til at håndtere begge samtidig, denne ses på \coderef[\labelprefix]{ex06/vhdl/TwoCounters.vhd}.
 
-% Conclusion
-\subsubsection{Konklusion}
-   
+    \includecode[\labelprefix]{ex06/vhdl/TwoCounters.vhd}{Entity til håndtering af sammenhørende 1'er og 10'er counters}{linerange={6-6,9-9,11-13,17-30,33-77}}
+
+    Desuden er det nødvendigt at skrive noget ekstra reset logik, da uret både skal kunne resettes med en knap og når det ruller over til 24:00:00.
+    Denne reset logik ses i \coderef{ex06/vhdl/reset_logic.vhd}.
+    Logikken får timernes 1'er og 10'er og et \texttt{reset\_in} som input.
+    Hvis \texttt{reset\_in} er aktiv (active-low) eller timerne samlet set er lig med \texttt{24}, bliver \texttt{reset\_out} aktiv (også active-low) hvilket kobles til alle reset input på de andre delblokke.
+
+    \includecode{ex06/vhdl/reset_logic.vhd}{Reset logik til 24-timers uret}{}
+
+    Alle delblokkene sat sammen i en \texttt{watch} entity ses på \coderef[watch1]{ex06/vhdl/watch.vhd}, \coderefsimple[watch2]{ex06/vhdl/watch.vhd}, \coderefsimple[watch3]{ex06/vhdl/watch.vhd} og \coderefsimple[watch4]{ex06/vhdl/watch.vhd}.
+
+    \includecode[watch1]{ex06/vhdl/watch.vhd}{Interface til \texttt{watch} entity}{linerange={1-19}}
+
+    \includecode[watch2]{ex06/vhdl/watch.vhd}{Begyndelse på arkitektur og definerede signaler}{linerange={21-29}}
+
+    \includecode[watch3]{ex06/vhdl/watch.vhd}{Arkitekturen for \texttt{watch} bestående af delblokke (1 af 2)}{linerange={32-71}}
+
+    \includecode[watch4]{ex06/vhdl/watch.vhd}{Arkitekturen for \texttt{watch} bestående af delblokke (2 af 2)}{linerange={73-100}}
+
+    % Results
+    \subsubsection{Resultater}
+
+    Implementationen testes vha. testbench i \coderef[]{ex06/vhdl/watch_tester.vhd}.
+
+    \includecode[]{ex06/vhdl/watch_tester.vhd}{Testbench for entity \texttt{watch}}{}
+
+    % TODO resultater her, billeder af uret der virker
+    % TODO eventuelt RTL-view?
+
+    % Discussion
+    \subsubsection{Diskussion}
+
+    % TODO diskussion af resultaterne
+
+    % Conclusion
+    \subsubsection{Konklusion}
+
+    Med en god separation af funktionalitet i mindre blokke, kan man vha. struktureret design nemt sammensætte små delblokke til noget brugbart, som f.eks. et ur ud fra enkeltvise tællere og displays.
 }
