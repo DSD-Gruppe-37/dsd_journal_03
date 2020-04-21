@@ -21,13 +21,13 @@
     Delblokkene blev samlet i en \texttt{guess\_game} entity der blev opbygget strukturelt og udnyttede muligheden for at lave interne signaler.
 
     Da koden blev meget lang, er den delt op i flere stykker.
-    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game Entity]Her ses selve entitydeklerationen, hvor alle input og output oprettes.}{linerange={0-14}}
+    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game Entity]Interface til guess\_game entity.}{linerange={0-14}}
 
-    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitektur og interne signaler]Her ses begyndelsen på \texttt{Guess Game} arkitekturen, samt de signaler der oprettes}{linerange={16-21}}
+    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitektur og interne signaler]Her ses begyndelsen på \texttt{Guess Game} arkitekturen, samt de signaler der oprettes}{linerange={15-21}}
 
-    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 1]Her ses de interne forbindelser mellem de oprettede elementmer.}{linerange={23-63}}
+    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 1]Her ses de interne forbindelser mellem de oprettede elementmer.}{linerange={23-62}}
 
-    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 2]Slutningen af koden, hvor de sidste elementer forbindes, og evt. ubrugte porte bliver der taget hånd om.}{linerange={64-87}}
+    \includecode[\labelprefix]{ex05/vhdl/guess_game.vhd}{[Guess Game arkitekturen del 2]Slutningen af koden, hvor de sidste elementer forbindes, og evt. ubrugte porte bliver der taget hånd om.}{linerange={63-87}}
 
     \subsubsection*{Latch}
     Et register der kan fastholde en værdi. Vores implementation ses på \coderef[\labelprefix]{ex05/vhdl/latch.vhd} er generisk og kan derfor gemme værdier af forskellig størrelse. Denne har til formål at gemme det korrekte tal, når der trykkes på \texttt{set}.
