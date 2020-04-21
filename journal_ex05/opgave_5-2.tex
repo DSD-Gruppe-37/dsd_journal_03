@@ -40,14 +40,14 @@
     \includecode[\labelprefix]{ex05/vhdl/CompareLogic.vhd}{Compare entity og arkitektur}{linerange={6-33}}
 
     \subsubsection*{Multiplexers}
-    \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Fælles mux entity}{linerange={7-14}}
+    \includecode[ent]{ex05/vhdl/mux.vhd}{Fælles mux entity}{linerange={7-14}}
     Det var tydeligt at binary to 7-segement decoderen bestod af multiplexers - hvilket gør at følgende multiplexers kan skrives på samme måde.
-    \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux2 arkitektur}{linerange={37-48}}
 
-    Derfor kunne den let skrives på samme måde, hvilket ses i \coderef[\labelprefix]{ex05/vhdl/mux.vhd}
+    \includecode[mux2]{ex05/vhdl/mux.vhd}{Mux2 arkitektur}{linerange={37-48}}
+    Derfor kunne den let skrives på samme måde, hvilket ses i \coderef[mux2]{ex05/vhdl/mux.vhd}
 
-    \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{Mux4 arkitektur}{linerange={19-32}}
-    Ved at udvide multiplexeren, kunne der ligeledes laves en multiplexer der håndterede visning af 10'ere og 1'ere på de 2 hexdisplays.
+    \includecode[mux4]{ex05/vhdl/mux.vhd}{Mux4 arkitektur}{linerange={19-32}}
+    Ved at udvide multiplexeren, kunne der ligeledes laves en multiplexer, \coderef[mux4]{ex05/vhdl/mux.vhd}, der håndterede visning af hvad der vises på 10'ere og 1'ere på de 2 hexdisplays. Dette vil enten være det numeriske input eller en af de \emph{hardcoded} tre outputs ind :\texttt{Hi}, \texttt{Lo} og \texttt{--}
 
     % Results
     \subsubsection{Resultater}
