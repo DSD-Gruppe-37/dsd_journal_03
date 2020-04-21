@@ -24,14 +24,36 @@ Vi implementerede \texttt{watch} entity og en række \texttt{bin2sevenseg} entit
 
 Da de fire outputdisplays består af \emph{slice}'s af et enkelt signal, valgte vi at samle dem i en entity for sig selv - dette gjorde også at RTL view'et i \figref{ex6-4-rtl} blev nær identisk med det IBD (fig. 6 i øvelsesvejlednignen) der var udleveret. 
 
+\subsubsection*{Compare logic}
+\includecode[compare]{ex06/vhdl/compareTime.vhd}{Alarm watch arkitektur: Compare}{linerange={5-29}}
+Modulet i \coderef[compare]{ex06/vhdl/compareTime.vhd} består blot af en simpel komparator og en \texttt{IF/ELSE} statement der aktivere et \texttt{alarm}output, hvis indholdet at de to inputtede \texttt{STD\_LOGIC\_VECTOR} er ens.
+
+\subsubsection*{Input limiting}
+\includecode[compare]{ex06/vhdl/inputLimiting.vhd}{Alarm watch arkitektur: Compare}{linerange={5-57}}
+% TODO
+
+
+
 % Results
 \subsubsection{Resultater}
 
 \texttt{Alarm watch} blev test i \coderef[testbench]{ex06/vhdl/test_bench.vhd} 
 \includecode[testbench]{ex06/vhdl/test_bench.vhd}{Alarm watch test bench}{linerange={40-60}}
 
+\begin{figure}[H]
+    \centering
+    \dsdsubfig{ex6-4-TimeBelow}{Tiden er ikke inden for alarmintervallet.}{0.8}
+    \dsdsubfig{ex6-4-TimeSet}{Alarmtiden sættes}{0.8}
+    \dsdsubfig{ex6-4-TimeEqual}{Tiden er det samme som alarmtiden.}{0.8}
+    \dsdsubfig{ex6-4-TimeOver}{Tiden er ikke inden for alarmintervallet}{0.8}
+    \caption{Fotos der viser de forskellige tilstande for alarmen}\label{fig:ex6-2-netlist}
+\end{figure}
+
 % Discussion
 \subsubsection{Diskussion}
+
+
+
 
 % Conclusion
 \subsubsection{Konklusion}
