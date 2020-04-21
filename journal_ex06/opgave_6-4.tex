@@ -29,7 +29,7 @@ Da de fire outputdisplays består af \emph{slice}'s af et enkelt signal, valgte 
 Modulet i \coderef[compare]{ex06/vhdl/compareTime.vhd} består blot af en simpel komparator og en \texttt{IF/ELSE} statement der aktivere et \texttt{alarm}output, hvis indholdet at de to inputtede \texttt{STD\_LOGIC\_VECTOR} er ens.
 
 \subsubsection*{Input limiting}
-\includecode[compare]{ex06/vhdl/inputLimiting.vhd}{Alarm watch arkitektur: Compare}{linerange={5-57}}
+\includecode[input]{ex06/vhdl/inputLimiting.vhd}{Alarm watch arkitektur: Input limiting}{linerange={5-57}}
 Tanken bag dette modul, var at begrænse inputværdierne, så den maksimale værdi var \texttt{[23:59]}. 
 Der blev lavet en limiter til både minutsektionen og timesektionen, hvor begge blev lavet med \texttt{IF/ELSE} statements. Minutdelen blev begrænset til \texttt{5} for 10'erne og \texttt{9} for 1'erne på minutsektionen.
 
