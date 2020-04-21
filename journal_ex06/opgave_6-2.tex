@@ -39,8 +39,9 @@ For at udregne maksimalværdien, gjorde vi flg:
 \includecode[\labelprefix-ent]{ex06/vhdl/clock_gen.vhd}{Clock generatoren entity og start på arkitekturen (1 af 2)}{linerange={1-30}}
 
 \subsubsection*{Hastighed på clock}
-Ved at lave \texttt{speedSelector} som en variable integer, har vi mulighed for at skifte hastighed på \emph{clock}'en. Denne er lavt en \texttt{case}statemetent, hvilket åbner for en mulighed for udvidelser af selektoren --- der kan let laves flere muligheder, ved at tilføje flere \emph{bits} til \texttt{speed}inputtet.
+Ved at lave \texttt{speedSelector} som en variable integer, har vi mulighed for at skifte hastighed på \emph{clock}'en. Denne er lavt en \texttt{case}statemetent, hvilket åbner for en mulighed for udvidelser af selektoren --- der kan let laves flere muligheder, ved at tilføje flere \emph{bits} til \texttt{speed}inputtet. 
 
+Under senere test af de forskellige moduler blev \texttt{'0'} valget sat til: \texttt{10e3} hvilket gav en clockperiode på 200µs. 
 
 \includecode[\labelprefix-arch]{ex06/vhdl/clock_gen.vhd}{Clock generatoren speed select og reset (2 af 2)}{firstline=32}
 
@@ -63,12 +64,12 @@ Denne undersøger om \texttt{reset} knappen er aktiveret. Hvis dette er tilfæld
 
 \Figref{ex6-2-clkRTL} viser noget af det interessante ved VHDL synthesizering --- Clock generatorenr består réelt set af 6 elementer: 2 logiske elementer, \emph{Add} og \emph{Less than}, 1 enkelt multiplexer, en \emph{OR-gate} med et inveret input, og så to \emph{flipflop}-kredse, hvor af den ene fungere som \emph{clockoutput}. \Figref{ex6-2-clkPOSTMAP} viser effektivitekten af VHDL's synthesizer og konceptet bag \emph{FPGA}boards hardwaremuligheder.
 
-
-
 % Discussion
 \subsubsection{Diskussion}
+Clockgeneratoren virker efter hensigten, og tæller uden problemer op.
 
 % Conclusion
 \subsubsection{Konklusion}
 
+Vha. \emph{VHDL}'s biblioteker  \texttt{STD\_LOGIC\_1164} og \texttt{NUMERIC\_STD} kan en clock generator implementeres på et \emph{FPGA} board. Denne kan enkelt sættes til en specfik frekvens.
 }
