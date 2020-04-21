@@ -23,15 +23,24 @@
     % Results
     \subsubsection{Resultater}
 
+    Vores \texttt{multi\_counter} testes med testbenchen som set i \coderef[\labelprefix]{ex06/vhdl/multi_counter_tester.vhd}.
+
     \includecode[\labelprefix]{ex06/vhdl/multi_counter_tester.vhd}{[Test bench: Multi Counter]Testbench til multi\_counter}{firstline=5}
 
-    % TODO funktionel simulation af counter, vigtigt med skift af MODE fra højt max til lavt max
+    Funktionelle simulationer blev lavet for at verificere at implementationen virker som forventet.
+    \Figref{ex6-1_fnsim-1_rollover-carry_marked} viser først simulation med almindelig optælling og rollover til \texttt{0} som sætter \texttt{cout} høj.
+    \Figref{ex6-1_fnsim-2_reset_marked} viser anden simulation som sætter den asynkrone \texttt{reset} midt i optælling.
+    \Figref{ex6-1_fnsim-1_mode_change_marked} viser trejde simulation som skifter \texttt{mode} til et mode med en lavere maksimum værdi.
+
+    \dsdfig{ex6-1_fnsim-1_rollover-carry_marked}{0.9\linewidth}{Funktionel simulation 1: almindelig optælling}
+    \dsdfig{ex6-1_fnsim-2_reset_marked}{0.9\linewidth}{Funktionel simulation 2: \texttt{reset} sættes midt i optælling}
+    \dsdfig{ex6-1_fnsim-3_mode_change_marked}{0.9\linewidth}{Funktionel simulation 3: skift af \texttt{mode}}
 
     % Discussion
     \subsubsection{Diskussion}
 
-    Tælleren virker efter hensigten.
-    % TODO og kan den skifte til andre MODES korrekt??
+    Vi ser ud fra vores funktionelle simulationer at \texttt{multi\_counter} komponenten virker efter hensigten.
+    Funktionen \texttt{rising\_edge} detekterer korrekt vores clock signal som er koblet til en knap.
 
     % Conclusion
     \subsubsection{Konklusion}
