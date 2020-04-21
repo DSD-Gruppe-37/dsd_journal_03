@@ -23,32 +23,39 @@
 
     \includecode[mux]{ex05/vhdl/two_player_guess_game.vhd}{[Two Player Guess Game arkitektur]Her ses de to multiplexers der holder styr på spillerens valg.}{linerange={66-114}}
 
-    De to multiplexers der ses i \coderef[mux]{ex05/vhdl/two_player_guess_game.vhd} blev implementeret vha. \texttt{when} statements, den ene er vist i \coderef[\labelprefix]{ex05/vhdl/mux.vhd}, og den anden er tidliger vist i \coderef[src5-2]{ex05/vhdl/mux.vhd}.
+    De to multiplexers der ses i \coderef[mux]{ex05/vhdl/two_player_guess_game.vhd} blev implementeret vha. \texttt{CASE} statements, den ene er vist i \coderef[\labelprefix]{ex05/vhdl/mux.vhd}, og den anden er vist tidligere i \coderef[src5-2]{ex05/vhdl/mux.vhd}.
+    Vi vælger \texttt{CASE} statements da der basalt set er en mux, med et \texttt{select} signal og forskellige outputs baseret på dette signal.
 
     \includecode[\labelprefix]{ex05/vhdl/mux.vhd}{[Two Player Guess Game multiplexers]Her ses de den ene multiplexer der holder styr på spillerens valg.}{linerange={53-70}}
 
     % Results
     \subsubsection{Resultater}
 
+    2-player spillet testes med en testbench hvor mapping til DE2 boardet kan ses på \coderef[\labelprefix]{ex05/vhdl/test_bench.vhd}.
+
+    \includecode[\labelprefix]{ex05/vhdl/test_bench.vhd}{Test mapping til 2-player Guess Game}{linerange={33-44}}
+
     \subsubsection*{Latches}
+
+    I vores compilation report ser vi de samme \emph{inferred latches} som i Listing \coderefsimple[src5-2]{ex05/latchreport1p.txt} og derudover også dem set i Listing \coderefsimple[\labelprefix]{ex05/latchreport2p.txt}.
+    Dykker vi ind i compilation reporten ser vi som på \figref{ex5-3_number_of_latches} at der er lavet 38 latches.
+
     \includecode[\labelprefix]{ex05/latchreport2p.txt}{Udsnit af output report}{}
 
-    Som forventet opstår der latches igen, og outputtet i \coderef[\labelprefix]{ex05/latchreport1p.txt} fremkommer igen. 
-
-    Desuden kommer også \coderef[\labelprefix]{ex05/latchreport2p.txt}
-
-    % //TODO Mangler et resultatafsnit...
+    \dsdfig{ex5-3_number_of_latches}{0.8\linewidth}{Antallet af \emph{inferred latches} efter syntetisering}
 
     % Discussion
     \subsubsection{Diskussion}
 
-    % TODO diskussion om antallet af observerede latches (bør være dobbelt af ét guess_game)
-    Igen ser vi at det er nemt at opbygge sit design strukturelt.
+    Da der er to spil må der nødvendigvis være minimum 16 \emph{inferred latches} da hver spil gemmer en 8-bit værdi.
+    De resterende 22 latches forklares med vores \texttt{mux4In}: samlet set er inputtet til hvert spil 11 bit.
+    Da muxen skifter mellem de to spil gemmes input værdierne for det spil der ikke er aktivt, således at det inaktive spil ikke ændrer sig før det bliver aktivt igen.
+    Her kunne man måske have valgt at lave et specifikt register komponent til det inaktive spil, således at der kun blev oprettet 11 ekstra latches, i stedet for 22.
 
-    Ved at bruge \texttt{when} statements, kunne vi implementere den multiplexer der holder styr på hvilken spiller der i brug, direkte i den multiplexer entity der allerede var lavet. Desuden kunne en tidligere multiplexer genbruges.
+    Ved at bruge \texttt{CASE} statements, kunne vi implementere den multiplexer der holder styr på hvilken spiller der i brug, direkte i den multiplexer entity der allerede var lavet. Desuden kunne en tidligere multiplexer genbruges.
 
     % Conclusion
     \subsubsection{Konklusion}
 
-    % TODO Mangler en konklusion..
+    Vi fik det til at spille, men selvom det er nemt at sammensætte små isolerede dele, så kan det stadig hurtigt blive et komplekst design, som måske kunne forbedres med lidt ekstra arbejde.
 }
