@@ -205,6 +205,7 @@
 \newcommand{\blue}[1]{{\color{blue}#1}}
 \newcommand{\green}[1]{{\color{codegreen}#1}}
 \newcommand{\cblue}[1]{\color{blue}#1}
+\definecolor{brickred}{rgb}{0.8, 0.25, 0.33}
 
 \def\dsdvhdlfontsize{\small}
 
@@ -213,7 +214,7 @@
     commentstyle=\color{codegreen}\dsdvhdlfontsize,
     keywordstyle=\color{blue}\dsdvhdlfontsize,
     numberstyle=\tiny\color{codegray},
-    stringstyle=\color{red}\dsdvhdlfontsize,
+    stringstyle=\color{brickred}\dsdvhdlfontsize,
     basicstyle=\ttfamily\dsdvhdlfontsize,
     keywords={
        variable,constant,downto,tolibrary,all,use,in,out,map,is,of,begin,end,signal,entity,port,architecture,component,if,then,else,process,array,array,is,type,subtype,type,subtype,range,with,select,when,others,case,elsif,null,assert,function,procedure,return,operator,library,VARIABLE,CONSTANT,DOWNTO,TOLIBRARY,ALL,USE,IN,OUT,MAP,IS,OF,BEGIN,END,SIGNAL,ENTITY,PORT,ARCHITECTURE,COMPONENT,IF,THEN,ELSE,PROCESS,ARRAY,ARRAY,IS,TYPE,SUBTYPE,TYPE,SUBTYPE,RANGE,WITH,SELECT,WHEN,OTHERS,CASE,ELSIF,NULL,ASSERT,FUNCTION,PROCEDURE,RETURN,OPERATOR,LIBRARY
@@ -223,11 +224,13 @@
     },
     %keywordstyle=[2]\color{red}\ttfamily\dsdvhdlfontsize,
     morecomment=[l]{--},
-    morestring=*[d]{"},
-    morestring=[s][]{"}{"},
-    morestring=**[d]{'},
-    morestring=[d]{\\'},
-    morestring=**[d]{"},
+    % morestring=*[d]{"},
+    % morestring=[s][]{"}{"},
+    % morestring=**[d]{'},
+    % morestring=[d]{\\'},
+    % morestring=**[d]{"},
+    morestring=[d]{'},
+    morestring=[d]{"},
     breakatwhitespace=true,         
     breaklines=true,                 
     captionpos=b,                           % sets the caption-position to top
