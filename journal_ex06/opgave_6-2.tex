@@ -1,22 +1,74 @@
 {
-    \newcommand{\labelprefix}{src6-2}
+\newcommand{\labelprefix}{src6-2}
 
-    \subsection{Clock - One Digit}
+\subsection{Clock - One Digit}
 
-    % Intro 
-    \subsubsection{Introduktion}
+% Intro 
+\subsubsection{Introduktion}
 
-    % Design
-    \subsubsection{Design og implementering}
+Denne opgave handler om at skabe en \emph{synchronous clock generator} med \emph{asynchronous reset} som baseret på \texttt{speed} og \texttt{CLOCK\_50} kan tælle i med en konstant hastighed hhv. 1s og 500ms.
 
-    % Results
-    \subsubsection{Resultater}
+% Design
+\subsubsection{Design og implementering}
+
+\begin{figure}[H]
+    \centering
+    \dsdsubfig{ex6-2-clkRTL}{RTL view: Clock generator}{}
+    \dsdsubfig{ex6-2-clkPOSTMAP}{Postmap view: Clock generator - for stort til at vise i sin helhed. Viser effektivitekten af VHDL}{0.8}
+    \caption{Netlist views af clockgeneratoren}\label{fig:ex6-2-netlist}
+\end{figure}
+% \dsdfig{ex6-2-clkRTL}{0.8\linewidth}{RTL view: Clock generator}
+% \dsdfig{ex6-2-clkPOSTMAP}{0.8\linewidth}{Postmap view: Clock generator - for stort vise korrekt. Viser effektivitekten af VHDL}
+
+Implementationen af \emph{clock generatoren} ses i \coderef[\labelprefix-ent]{ex06/vhdl/clock_gen.vhd} og \coderefsimple[\labelprefix-arch]{ex06/vhdl/clock_gen.vhd}.
+For at reagere på et clock signal skriver vi igen arkitekturen som behavioural style. For at sikre at der kun tælles på en rising edge vil vi bruge funktionen \texttt{rising\_edge()} fra \texttt{STD\_LOGIC\_1164} biblioteket.
+
+På en \emph{rising edge} opdateres den maksimale tæller-værdi baseret på nuværende \texttt{speed}. \emph{clock generatoren} nulstilles overskrider den valgte værdi, og ellers tæller den op.
+
+For at udregne maksimalværdien, gjorde vi flg:
+\begin{equation}
+    \mathtt{speedSelector} = frequency \cdot duration
+\end{equation}
+\begin{equation}
+    50 \cdot 10^6 = \frac{1}{50 \mathrm{MHz}} \cdot 1\textrm{s}
+\end{equation}
+\begin{equation}
+    25 \cdot 10^6 = \frac{1}{50 \mathrm{MHz}} \cdot 0.5\textrm{s}
+\end{equation}
+
+\includecode[\labelprefix-ent]{ex06/vhdl/clock_gen.vhd}{Clock generatoren entity og start på arkitekturen (1 af 2)}{linerange={1-30}}
+
+\subsubsection*{Hastighed på clock}
+Ved at lave \texttt{speedSelector} som en variable integer, har vi mulighed for at skifte hastighed på \emph{clock}'en. Denne er lavt en \texttt{case}statemetent, hvilket åbner for en mulighed for udvidelser af selektoren --- der kan let laves flere muligheder, ved at tilføje flere \emph{bits} til \texttt{speed}inputtet.
 
 
-    % Discussion
-    \subsubsection{Diskussion}
+\includecode[\labelprefix-arch]{ex06/vhdl/clock_gen.vhd}{Clock generatoren speed select og reset (2 af 2)}{firstline=32}
 
-    % Conclusion
-    \subsubsection{Konklusion}
-   
+\subsubsection*{Clock logikken}
+For hver \emph{rising\_edge} bliver der tjekket om \texttt{ClkDivCounteren} har nået \texttt{speedSelector}værdien.
+
+Hvis den er større end eller lig \texttt{speedSelector}værdien, bliver den nulstillet og clockoutputtet sættes højt.
+
+Efter nulstilling vil \texttt{ClkDivCounteren} givet være lavere end \texttt{speedSelector}værdien, og den inkrementeres med 1, og outputtet holdes lavt.
+
+Ovenstående process gentages ved en frekvens af 50MHz og sker hele tiden, meget hurtigt og er en synkronproces da det styres af en \emph{rising\_edge} drevet proces.
+
+\subsubsection*{Reset logikken}
+For at kunne nulstille Counteren UDEN for en\emph{rising\_edge()} implementeres en hard reset.
+
+Denne undersøger om \texttt{reset} knappen er aktiveret. Hvis dette er tilfældet nulstilles counteren og clockoutputtet sættes lavt.
+
+% Results
+\subsubsection{Resultater}
+
+\Figref{ex6-2-clkRTL} viser noget af det interessante ved VHDL synthesizering --- Clock generatorenr består réelt set af 6 elementer: 2 logiske elementer, \emph{Add} og \emph{Less than}, 1 enkelt multiplexer, en \emph{OR-gate} med et inveret input, og så to \emph{flipflop}-kredse, hvor af den ene fungere som \emph{clockoutput}. \Figref{ex6-2-clkPOSTMAP} viser effektivitekten af VHDL's synthesizer og konceptet bag \emph{FPGA}boards hardwaremuligheder.
+
+
+
+% Discussion
+\subsubsection{Diskussion}
+
+% Conclusion
+\subsubsection{Konklusion}
+
 }
