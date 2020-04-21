@@ -6,12 +6,29 @@
 % Intro 
 \subsubsection{Introduktion}
 
+Ved at tilføje nogle enkelte moduler kan uret fra tidligere udvides med en sammenligningsfunktionalitet --- dette vil kunne bruges til at lave tidsindstillet alarm. 
+
 % Design
 \subsubsection{Design og implementering}
+
+Vi implementerede \texttt{watch} entity og en række \texttt{bin2sevenseg} entities, og tilføjede desuden 3 nye elementer: \texttt{Multiplexer}, \texttt{InputLimiter} og \texttt{Compare}.
+
+\includecode[ent]{ex06/vhdl/alarm_watch_tester.vhd}{Alarm watch entity}{linerange={6-28}}
+\includecode[arch1]{ex06/vhdl/alarm_watch_tester.vhd}{[Alarm watch arkitektur] Signaldekleration for alarmen}{linerange={39-49}}
+\includecode[arch2]{ex06/vhdl/alarm_watch_tester.vhd}{[Alarm watch arkitektur] Her ses hvordan selve uret (\coderefsimple[watch1]{ex06/vhdl/watch.vhd}) og multiplexeren implementeres}{linerange={51-66,68-96}}
+\includecode[arch2]{ex06/vhdl/alarm_watch_tester.vhd}{[Alarm watch arkitektur] Her ses input limiteren, compare module og et quaddisplay}{linerange={100-111,114-123,126-139}}
+\dsdfig{ex6-4-rtl}{0.9\textwidth}{RTL view: Alarm watch}
+
+\subsubsection*{Quad display}
+\includecode[arch2]{ex06/vhdl/quadBin2Sevenseq.vhd}{[Quad HEX display] Samling af fire displays}{firstline=6}
+
+Da de fire outputdisplays består af \emph{slice}'s af et enkelt signal, valgte vi at samle dem i en entity for sig selv - dette gjorde også at RTL view'et i \figref{ex6-4-rtl} blev nær identisk med det IBD (fig. 6 i øvelsesvejlednignen) der var udleveret. 
 
 % Results
 \subsubsection{Resultater}
 
+\texttt{Alarm watch} blev test i \coderef[testbench]{ex06/vhdl/test_bench.vhd} 
+\includecode[testbench]{ex06/vhdl/test_bench.vhd}{Alarm watch test bench}{linerange={40-60}}
 
 % Discussion
 \subsubsection{Diskussion}
