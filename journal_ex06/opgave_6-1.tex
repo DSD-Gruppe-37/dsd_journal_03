@@ -1,37 +1,41 @@
 {
-\newcommand{\labelprefix}{src6-1}
+    \newcommand{\labelprefix}{src6-1}
 
-\subsection{Counter - One Digit}
+    \subsection{Counter - One Digit}
 
-% Intro 
-\subsubsection{Introduktion}
+    % Intro 
+    \subsubsection{Introduktion}
 
-Denne opgave handler om at skabe en tæller der går fra \texttt{[0:9]}. For at gøre dette vil vi udnytte nogle af \texttt{IEEE.numeric\_std.ALL} biblioteket, der blandet andet indholder \emph{edge detection}.
+    Denne opgave handler om at skabe en clock tæller som baseret på \texttt{mode} kan tælle enten \texttt{[0:2]}, \texttt{[0:5]} eller \texttt{[0:9]}.
 
-% Design
-\subsubsection{Design og implementering}
+    % Design
+    \subsubsection{Design og implementering}
 
-Selve tælleren blev skrevet vha. \texttt{process} og \texttt{case} metoder.
+    Implementationen af tælleren ses i \coderef[\labelprefix-ent]{ex06/vhdl/multi_counter.vhd} og \coderefsimple[\labelprefix-arch]{ex06/vhdl/multi_counter.vhd}.
+    For at reagere på et clock signal skriver vi arkitekturen som behavioural style, altså en process med signalet \texttt{clk} i sensitivity listen. For at sikre at der kun tælles på en rising edge vil vi bruge funktionen \texttt{rising\_edge()} fra \texttt{STD\_LOGIC\_1164} biblioteket.
 
+    På en \emph{rising edge} opdateres den maksimale tæller-værdi baseret på nuværende \texttt{mode}. Tælleren nulstilles hvis den ville overskride maksimal værdien, ellers tæller den op.
 
+    \includecode[\labelprefix-ent]{ex06/vhdl/multi_counter.vhd}{[Count one digit entity] Interface for multi\_counter entitien}{linerange=5-15}
 
-\includecode[\labelprefix]{ex06/vhdl/count_onedigit.vhd}{[Count one digit entity] Her ses Count one digit entitien, hvor input og output definers}{linerange=5-16}
+    \includecode[\labelprefix-arch]{ex06/vhdl/multi_counter.vhd}{[Count one digit arkitektur] Her ses multi\_counter digit arkitekturen, hvor bla. \texttt{mode} og \texttt{reset} implementers}{linerange=17-47, language=vhdl}
 
-\includecode[\labelprefix]{ex06/vhdl/count_onedigit.vhd}{[Count one digit arkitektur] Her ses Count one digit arkitekturen, hvor bla. \texttt{mode} og \texttt{reset} implementers}{linerange=18-66}
+    % Results
+    \subsubsection{Resultater}
 
-\includecode[\labelprefix]{ex06/vhdl/multi_counter_tester.vhd}{[Test bench: Multi Counter]Test setup der viser et test setup for vores tæller.}{linerange=5-41}
+    \includecode[\labelprefix]{ex06/vhdl/multi_counter_tester.vhd}{[Test bench: Multi Counter]Testbench til multi\_counter}{firstline=5}
 
-\includecode[\labelprefix]{ex06/vhdl/test_bench.vhd}{[Test bench: Multi Counter Tester]Test setuppet \coderef[\labelprefix]{ex06/vhdl/test_bench.vhd}, sat op i vores test bench.}{linerange=37-45}
+    % TODO funktionel simulation af counter, vigtigt med skift af MODE fra højt max til lavt max
 
+    % Discussion
+    \subsubsection{Diskussion}
 
-% Results
-\subsubsection{Resultater}
+    Tælleren virker efter hensigten.
+    % TODO og kan den skifte til andre MODES korrekt??
 
+    % Conclusion
+    \subsubsection{Konklusion}
 
-% Discussion
-\subsubsection{Diskussion}
-
-% Conclusion
-\subsubsection{Konklusion}
-
+    VHDL gør det nemt at lave programmer der reagerer på clock signaler.
+    Desuden gør \texttt{IF} statements i en clock'd process det simpelt at implementere synkrone og/eller asynkrone inputs, da der er en indbygget prioritering.
 }
