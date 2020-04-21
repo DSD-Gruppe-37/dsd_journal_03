@@ -30,32 +30,35 @@ Modulet i \coderef[compare]{ex06/vhdl/compareTime.vhd} består blot af en simpel
 
 \subsubsection*{Input limiting}
 \includecode[compare]{ex06/vhdl/inputLimiting.vhd}{Alarm watch arkitektur: Compare}{linerange={5-57}}
-% TODO
+Tanken bag dette modul, var at begrænse inputværdierne, så den maksimale værdi var \texttt{[23:59]}. 
+Der blev lavet en limiter til både minutsektionen og timesektionen, hvor begge blev lavet med \texttt{IF/ELSE} statements. Minutdelen blev begrænset til \texttt{5} for 10'erne og \texttt{9} for 1'erne på minutsektionen.
 
-
+Timesektionen blev ligeledes begrænset, men med flere argumenter. Først blev 10'er sektionen begrænset til \texttt{2}. Derefter satte vi en betingelse op, der skulle blokere 1'erne i at tælle op fra \texttt{3}, når 10'erne viste \texttt{2}.
+Dette endte med en total maksimalværdi på \texttt{23:59}.
 
 % Results
 \subsubsection{Resultater}
 
-\texttt{Alarm watch} blev test i \coderef[testbench]{ex06/vhdl/test_bench.vhd} 
+\texttt{Alarm watch} blev testet i \coderef[testbench]{ex06/vhdl/test_bench.vhd}, hvor også pin mappings ses. 
 \includecode[testbench]{ex06/vhdl/test_bench.vhd}{Alarm watch test bench}{linerange={40-60}}
 
+Alarmfunktionaliten blev testet med en alarm sat til \texttt{10:54}, hvoraf resultatet ses i \figref{ex6-4-fotos}.
 \begin{figure}[H]
     \centering
     \dsdsubfig{ex6-4-TimeBelow}{Tiden er ikke inden for alarmintervallet.}{0.8}
     \dsdsubfig{ex6-4-TimeSet}{Alarmtiden sættes}{0.8}
     \dsdsubfig{ex6-4-TimeEqual}{Tiden er det samme som alarmtiden.}{0.8}
     \dsdsubfig{ex6-4-TimeOver}{Tiden er ikke inden for alarmintervallet}{0.8}
-    \caption{Fotos der viser de forskellige tilstande for alarmen}\label{fig:ex6-2-netlist}
+    \caption{Fotos der viser de forskellige tilstande for alarmen}\label{fig:ex6-4-fotos}
 \end{figure}
+
+Funktionaliteten i uret var meget lig den tidligere opgave - da det jo blot er  \coderef[watch1]{ex06/vhdl/watch.vhd} med flere elementer bygget uden på.
 
 % Discussion
 \subsubsection{Diskussion}
-
-
-
+Input limiteren voldte problemer i den forstand, det ikke lykkedes at få den til at virke helt korrekt. Begrænsningen fungerede uden problemer i minutsektionen, men i timesektionen kunne vi ikke få begrænsningen til at fungere hvis det \emph{kun} var \texttt{bin\_hrs1} der var aktiv. Her kunne resultater som \texttt{[1F:59]} fremkomme - hvilket jo tydeligvis er en fejl --- som ligger i den række \texttt{IF/ELSE} statements der er kaldt. Vi valgte at fjerne den sektion der skabte problemer og beholdte den del der fungerede. Dette må være vores første \emph{bug}. 
 
 % Conclusion
 \subsubsection{Konklusion}
-   
+   Ved tænke tilbage på funktionaliteten af de moduler vi tidligere har bygget, og bruge dem i nye designs,  har vi haft mulighed for at skabe større og mere komplekse projekter end hidtil ---  Her har vi har her lavet et 24 timers ur (med en enkelt fejl), i formattet \texttt{HH:MM:SS}, der har en alarmfunktion med visuelt feedback - denne opererer i spændet \texttt{[00:00]-[23:59]}.
 }
